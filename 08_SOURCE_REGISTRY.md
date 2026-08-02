@@ -1,21 +1,18 @@
 # Реестр источников
 
-| ID | Дата | Тип | Участники | Краткое содержание | Путь/ссылка | Статус проверки |
+| ID | Дата/период | Тип | Участники | Краткое содержание | Путь/ссылка | Статус |
 |---|---|---|---|---|---|---|
-| SRC-0001 |  |  |  |  |  |  |
+| SRC-0001 | до 2026-05 | project-package | Гвоздарь, Крис, др. | Базовый комбинированный мастер и аналитические документы | `09_COMBINED_MASTER.md`, `01_PROJECT_CORE.md`, `02_TIMELINE.md`, `03_HYPOTHESES_AND_CONFIDENCE.md` | imported |
+| SRC-0002 | 2026-04-29 и далее по файлу | text-transcript | Гвоздарь, Kriss | Текстовая ветка переписки | `sources/Ветка · Ветка · Флирт и доверие.txt` | raw |
+| SRC-0003 | 2026-04/05 и далее | chat-export | Гвоздарь, Kriss | `messages12.html`; локально доступен в проекте, в GitHub пока зарегистрирован без полного бинарного/HTML импорта | `sources/messages12_MANIFEST.md` | binary-pending |
+| SRC-0004 | 2026-06-17–2026-08-02 | project-chat-screenshots | Гвоздарь, Крис | Минск, июльская переписка, больница, сон 30.07, прямая проверка 01.08, повторные «Ау?» 02.08 | `kris/2026-06-17_to_2026-08-02_UPDATE.md` | reviewed; binary-pending |
+| SRC-0005 | 2026-05 | analysis-log | проект | Журнал смещения гипотезы после майских данных | `13_HYPOTHESIS_UPDATE_LOG_MAY.md` | imported |
+| SRC-0006 | текущий | analysis-current | проект | Текущая рабочая гипотеза | `12_UPDATED_WORKING_HYPOTHESIS_CURRENT.md` | imported |
 
-## Типы
-- screenshot
-- chat-export
-- text-transcript
-- audio-transcript
-- video-transcript
-- user-report
-- external-reference
-
-## Статус проверки
-- raw — исходник сохранён, не разобран;
-- reviewed — просмотрен;
-- verified — ключевые данные сверены;
-- conflicting — есть противоречие;
-- incomplete — источник неполный.
+## Правило статуса
+- `raw` — исходник сохранён, не разобран;
+- `reviewed` — просмотрен и использован;
+- `verified` — ключевые цитаты/факты сверены по первичному источнику;
+- `binary-pending` — первичное вложение существует в проектном чате/локальном пакете, но отдельный бинарный файл ещё не перенесён в GitHub;
+- `conflicting` — есть противоречие;
+- `incomplete` — источник неполный.
