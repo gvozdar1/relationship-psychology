@@ -1,8 +1,6 @@
-faa6787eac3122f3d84ad5e99412bb823413c52a8e556cd6015e1d3a877942f4  messages12.part01.html
-3bf49ffab14dae275d72ce53664e2cc218d19e1a265ae23ed30be15ccb02539a  messages12.part02.html
-cb6d953e967e6a41d65004d439fbd941053144abb45e2499fa2338790d4f71a3  messages12.part03.html
-899ea7e57a170d7388518395aeedec2a98fe4b8cf1efeb51803e1bfdc9457e7c  messages12.part04.html
-62c863ae3b51403ae683f970a820bfaec1989f48f63bffb213c3b1d1c6cc24a0  messages12.part05.html
-08fa37f8ee1d8c6533436a86b6a1b1fd2e0d557369bef85db0309ec9ecb218c0  messages12.part06.html
-a36b225b7fcad410d14fbc8ec8518de6ba4f90825687617d709d18b0aaba95c8  messages12.part07.html
-079a9c253d102f629edde8f886dbb7c052ca1ade3fcd352fb0921ecce527ed60  messages12.part08.html
+# SUPERSEDED PREPARATION
+#
+# Этот файл относился к раннему локальному плану деления исходного HTML на 8 частей.
+# Канонический архив проекта теперь хранится в `../b64/` как четыре части base64-кодированного XZ.
+# Актуальные контрольные суммы находятся в `../SHA256SUMS.txt`.
+# Эти 8 подготовительных частей не являются авторитетным GitHub-хранилищем `messages12.html`.
