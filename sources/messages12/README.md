@@ -1,4 +1,4 @@
-# `messages12.html` — lossless split archive
+# `messages12.html` — lossless archive
 
 Исходный файл проекта:
 - имя: `messages12.html`
@@ -6,16 +6,18 @@
 - кодировка: UTF-8
 - SHA-256: `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`
 
-Для надёжной передачи через connector файл разделён **без изменения байтов** по границам строк на 8 последовательных частей.
+## Канонический способ хранения
+Исходный HTML сжат без потерь в XZ, затем XZ закодирован в base64 и разделён на четыре последовательные части:
 
-Порядок сборки:
-1. `messages12.part01.html`
-2. `messages12.part02.html`
-3. `messages12.part03.html`
-4. `messages12.part04.html`
-5. `messages12.part05.html`
-6. `messages12.part06.html`
-7. `messages12.part07.html`
-8. `messages12.part08.html`
+1. `b64/messages12.html.xz.b64.part01`
+2. `b64/messages12.html.xz.b64.part02`
+3. `b64/messages12.html.xz.b64.part03`
+4. `b64/messages12.html.xz.b64.part04`
 
-Простая конкатенация этих восьми файлов должна дать исходный `messages12.html` размером 630716 байт и SHA-256 выше.
+Склейка четырёх частей, base64-декодирование и XZ-распаковка восстанавливают исходный `messages12.html` побайтово.
+
+Контроль XZ:
+- размер: **51152 байта**
+- SHA-256: `7a362a7cd5fd08e1420516e68a842a6ddbe44c804d736aaacec8407f42571de2`
+
+Подробная команда восстановления находится в `RECONSTRUCT.md`. Статус источника: `migrated-lossless-reconstructable`.
