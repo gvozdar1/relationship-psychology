@@ -9,9 +9,11 @@
 | SRC-0005 | 2026-05 | analysis-log | проект | Журнал смещения гипотезы после майских данных | `13_HYPOTHESIS_UPDATE_LOG_MAY.md` | imported-working |
 | SRC-0006 | текущий | analysis-current | проект | Текущая рабочая гипотеза | `12_UPDATED_WORKING_HYPOTHESIS_CURRENT.md` | imported-working |
 | SRC-0007 | локальный физический архив | screenshot-manifest | проект | 161 уникальный канонический скриншот, имена/размеры/SHA-256/геометрия/формат | `sources/screenshots/original_manifest.csv` | verified-manifest |
-| SRC-0008 | локальный физический архив | screenshot-preview-archive | проект | Оптимизированные WebP-копии; один файл записан напрямую, bundle 07 переносится reconstructable-частями | `sources/screenshots/optimized/`; `sources/screenshots/bundles/` | partial-migration |
-| SRC-0009 | локальный физический архив | video | проект | `1000029050.mp4`, 2 752 754 байта, SHA-256 зарегистрирован | `sources/video/README.md` | binary-pending |
+| SRC-0008 | локальный физический архив | screenshot-preview-archive | проект | Оптимизированные WebP-копии | `sources/screenshots/optimized/`; `sources/screenshots/bundles/` | partial-migration |
+| SRC-0009 | локальный физический архив | video | проект | `1000029050.mp4`, SHA-256 зарегистрирован | `sources/video/README.md` | binary-pending |
 | SRC-0010 | до синхронизации 02.08 | project-baseline | проект | Исходное локальное состояние рабочих документов до новой синхронизации | `archive/baseline/` | content-archived; byte-exact-09-pending |
+| SRC-0011 | 2026-08-03 | project-chat-screenshots | Гвоздарь, Крис | Выписка, Луна/ветклиника, плохое настроение, подробный вечерний апдейт | `kris/2026-08-03_UPDATE.md`; `sources/screenshots/live/2026-08-03_manifest.csv` | reviewed; current-upload-binary-pending |
+| SRC-0012 | 2026-08-04–05 | project-chat-screenshot | Гвоздарь, Крис | Усталость после ветеринарки, уважение границы, «Пиши завтра» как явное продолжение контакта | `kris/2026-08-04_to_05_UPDATE.md`; `sources/screenshots/live/2026-08-04_to_05_manifest.csv` | reviewed; current-upload-binary-pending |
 
 ## Статусы
 - `migrated-text` — текст реально хранится в GitHub;
@@ -19,6 +21,7 @@
 - `verified-manifest` — реестр локальных первичных файлов проверен, но manifest не заменяет сами бинарники;
 - `partial-migration` — часть физического содержимого уже записана, весь набор ещё не закрыт;
 - `binary-pending` — первичный бинарник зарегистрирован, но полное содержимое ещё не перенесено;
+- `current-upload-binary-pending` — новый исходник присутствует в текущей рабочей среде и зарегистрирован по размеру/SHA-256, но его бинарное содержимое ещё не записано в GitHub;
 - `reviewed` — источник просмотрен и использован;
 - `conflicting` — есть противоречие;
 - `incomplete` — источник неполный.
