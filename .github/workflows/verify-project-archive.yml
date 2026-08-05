@@ -1,0 +1,61 @@
+name: Verify project archive
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'sources/**'
+      - 'archive/**'
+      - 'SOURCE_INTEGRITY.md'
+      - 'MIGRATION_STATUS.md'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Reconstruct messages12.html
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd sources/messages12
+          cat b64/messages12.html.xz.b64.part01 \
+              b64/messages12.html.xz.b64.part02 \
+              b64/messages12.html.xz.b64.part03 \
+              b64/messages12.html.xz.b64.part04 \
+            | base64 -d > /tmp/messages12.html.xz
+          test "$(stat -c%s /tmp/messages12.html.xz)" = "51152"
+          echo "7a362a7cd5fd08e1420516e68a842a6ddbe44c804d736aaacec8407f42571de2  /tmp/messages12.html.xz" | sha256sum -c -
+          xz -dc /tmp/messages12.html.xz > /tmp/messages12.html
+          test "$(stat -c%s /tmp/messages12.html)" = "630716"
+          echo "d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf  /tmp/messages12.html" | sha256sum -c -
+
+      - name: Validate screenshot manifest shape
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          p = Path('sources/screenshots/original_manifest.csv')
+          rows = list(csv.DictReader(p.open(encoding='utf-8')))
+          assert len(rows) == 161, f'expected 161 screenshots, got {len(rows)}'
+          names = [r[next(iter(r))] for r in rows]
+          assert len(names) == len(set(names)), 'duplicate canonical screenshot names in manifest'
+          print('manifest rows:', len(rows))
+          PY
+
+      - name: Reject stale messages12 pending marker
+        shell: bash
+        run: |
+          test ! -e sources/messages12/LOSSLESS_PENDING.md
+
+      - name: Archive verification summary
+        shell: bash
+        run: |
+          echo 'messages12: OK'
+          echo 'screenshot manifest: 161 unique rows'

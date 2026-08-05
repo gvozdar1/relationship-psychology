@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "project": "Психология отношений: Крис",
+  "snapshot_date": "2026-08-03",
+  "branch": "sync-project-2026-08-02",
+  "policy": {
+    "source_priority": [
+      "09_COMBINED_MASTER.md",
+      "00_INDEX.md",
+      "dated_sources_and_update_logs",
+      "other_working_documents"
+    ],
+    "migration_rule": "migrated means full content is stored directly or losslessly reconstructable and hash-verifiable"
+  },
+  "physical_sources": {
+    "messages12.html": {
+      "original_size": 630716,
+      "original_sha256": "d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf",
+      "storage": "sources/messages12/b64/",
+      "container": "xz+base64-split",
+      "container_size": 51152,
+      "container_sha256": "7a362a7cd5fd08e1420516e68a842a6ddbe44c804d736aaacec8407f42571de2",
+      "status": "migrated-lossless-reconstructable"
+    },
+    "screenshots": {
+      "canonical_unique_count": 161,
+      "original_total_bytes": 30487355,
+      "manifest": "sources/screenshots/original_manifest.csv",
+      "originals_status": "binary-pending",
+      "optimized_status": "partial-migration",
+      "current_chat_opaque_duplicates": 15
+    },
+    "1000029050.mp4": {
+      "original_size": 2752754,
+      "original_sha256": "7257e6c3ab58295160bb41cb29ffc18e7f8e5546c4d352ac20ba9ffaaade7bf2",
+      "storage_registry": "sources/video/README.md",
+      "status": "binary-pending"
+    },
+    "baseline_09_combined_master": {
+      "original_size": 38249,
+      "original_sha256": "ddd407c8f85bc1d940571cc2dd8468aeaf2fda10360df5156c98893408e16c28",
+      "human_readable_archive": "archive/baseline/09_COMBINED_MASTER.baseline.part*.md",
+      "status": "content-archived-byte-exact-container-pending"
+    }
+  },
+  "screenshot_optimized_bundles": [
+    {"name":"screenshots_part_01_1000028787-1000028985.zip","files":25,"bytes":427006,"sha256":"b2cee56e92d32a2cfb0b2a1a7ad65a99830a3aabbc7c1f3b1cc4c4c0528e5f95","status":"pending"},
+    {"name":"screenshots_part_02_1000028986-1000029010.zip","files":25,"bytes":409754,"sha256":"1a0420349a560e47ccec9ef625db3b0c86f166509f17f8252a1320ec96763f9e","status":"pending"},
+    {"name":"screenshots_part_03_1000029014-1000029147.zip","files":25,"bytes":456067,"sha256":"76a08e46c10c4251719bb8810f6229d0f96ce900bc1ef900a0294e19855ba580","status":"pending"},
+    {"name":"screenshots_part_04_1000029148-1000029173.zip","files":25,"bytes":483027,"sha256":"b656e36c80a1d300b42a11864e9624577e19b83dc48d60922d1857945f9a6d99","status":"pending"},
+    {"name":"screenshots_part_05_1000029174-1000029304.zip","files":25,"bytes":513929,"sha256":"3d5d74366b4353134be873b1daa8980b75186b63b192794e6ca23cb2f74ab8d0","status":"pending"},
+    {"name":"screenshots_part_06_1000029305-1000029387.zip","files":25,"bytes":478889,"sha256":"b2c8fba3db30891f0063f2defdfcded1f2c6a507e9f28fe3251d474b5c9d994d","status":"pending"},
+    {"name":"screenshots_part_07_1000029405-1000029437.zip","files":11,"bytes":179828,"sha256":"87145dedcdb850c2ea59935c7c42a5a6bc5109e883b3382b5bf40d50b4774fff","status":"partial-parts-00-through-04"}
+  ]
+}

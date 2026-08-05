@@ -1,0 +1,1 @@
+Connector write-path verified for text and binary blobs. `messages12.html.xz` is the preferred lossless binary payload because it reduces the 630716-byte HTML to about 50 KB while preserving exact reconstruction by SHA-256.
