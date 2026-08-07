@@ -50,24 +50,49 @@ jobs:
           ffmpeg -y -v warning -i "$RUNNER_TEMP/input/aug6_all.ogg" -ac 1 -ar 16000 -c:a pcm_s16le "$RUNNER_TEMP/input/aug6_all.wav"
           ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$RUNNER_TEMP/input/aug6_all.wav"
 
-      - name: Transcribe Russian speech
+      - name: Split bundle back into six Telegram circles
         run: |
           set -euxo pipefail
-          "$WHISPER_CLI" \
-            -m "$WHISPER_MODEL" \
-            -f "$RUNNER_TEMP/input/aug6_all.wav" \
-            -l ru \
-            -t 4 \
-            -otxt -osrt -oj \
-            -of transcripts/aug6_all \
-            2>&1 | tee transcripts/whisper.log
+          SRC="$RUNNER_TEMP/input/aug6_all.wav"
+          # Exact boundaries from the source WAV durations used to build the bundle,
+          # with 1.000 s silence inserted between circles.
+          ffmpeg -y -v error -i "$SRC" -ss 0.000000  -t 9.406688  -c:a pcm_s16le transcripts/circle_1.wav
+          ffmpeg -y -v error -i "$SRC" -ss 10.406688 -t 8.553313  -c:a pcm_s16le transcripts/circle_2.wav
+          ffmpeg -y -v error -i "$SRC" -ss 19.960001 -t 41.833313 -c:a pcm_s16le transcripts/circle_3.wav
+          ffmpeg -y -v error -i "$SRC" -ss 62.793314 -t 8.425313  -c:a pcm_s16le transcripts/circle_4.wav
+          ffmpeg -y -v error -i "$SRC" -ss 72.218627 -t 17.705313 -c:a pcm_s16le transcripts/circle_5.wav
+          ffmpeg -y -v error -i "$SRC" -ss 90.923940 -t 11.369313 -c:a pcm_s16le transcripts/circle_6.wav
+          for f in transcripts/circle_*.wav; do
+            printf '%s ' "$f"
+            ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$f"
+          done
+
+      - name: Transcribe each circle independently in Russian
+        run: |
+          set -euxo pipefail
+          : > transcripts/bundle.txt
+          for n in 1 2 3 4 5 6; do
+            f="transcripts/circle_${n}.wav"
+            out="transcripts/circle_${n}"
+            "$WHISPER_CLI" \
+              -m "$WHISPER_MODEL" \
+              -f "$f" \
+              -l ru \
+              -t 4 \
+              -otxt -osrt -oj \
+              -of "$out" \
+              2>&1 | tee "transcripts/circle_${n}.log"
+            printf '\n===== CIRCLE %s =====\n' "$n" >> transcripts/bundle.txt
+            cat "${out}.txt" >> transcripts/bundle.txt
+          done
+          cat transcripts/bundle.txt
           ls -lah transcripts
 
       - name: Upload transcripts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telegram-transcripts-medium
+          name: telegram-circles-medium
           path: transcripts/
           if-no-files-found: warn
           retention-days: 3
