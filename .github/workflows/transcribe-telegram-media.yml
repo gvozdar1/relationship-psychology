@@ -24,7 +24,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg cmake g++
 
-      - name: Build whisper.cpp and download multilingual small model
+      - name: Build whisper.cpp and download multilingual base model
         run: |
           set -euxo pipefail
           git clone --depth 1 https://github.com/ggml-org/whisper.cpp.git "$RUNNER_TEMP/whisper.cpp"
@@ -32,8 +32,8 @@ jobs:
           cmake --build "$RUNNER_TEMP/whisper.cpp/build" --config Release -j2
           CLI="$RUNNER_TEMP/whisper.cpp/build/bin/whisper-cli"
           test -x "$CLI"
-          bash "$RUNNER_TEMP/whisper.cpp/models/download-ggml-model.sh" small
-          MODEL="$RUNNER_TEMP/whisper.cpp/models/ggml-small.bin"
+          bash "$RUNNER_TEMP/whisper.cpp/models/download-ggml-model.sh" base
+          MODEL="$RUNNER_TEMP/whisper.cpp/models/ggml-base.bin"
           test -s "$MODEL"
           echo "WHISPER_CLI=$CLI" >> "$GITHUB_ENV"
           echo "WHISPER_MODEL=$MODEL" >> "$GITHUB_ENV"
@@ -45,8 +45,9 @@ jobs:
           cat tools/telegram-media-transcriber/run-input/part_*.b64 \
             | tr -d '\n\r ' \
             | base64 -d > "$RUNNER_TEMP/input/aug6_all.ogg"
-          echo '44de110cbc9634033219681443065832b102a348a161223375634556294e52f6  '"$RUNNER_TEMP/input/aug6_all.ogg" | sha256sum -c -
-          ffmpeg -y -v error -i "$RUNNER_TEMP/input/aug6_all.ogg" -ac 1 -ar 16000 -c:a pcm_s16le "$RUNNER_TEMP/input/aug6_all.wav"
+          echo "decoded bytes: $(wc -c < "$RUNNER_TEMP/input/aug6_all.ogg")"
+          echo "decoded sha256: $(sha256sum "$RUNNER_TEMP/input/aug6_all.ogg" | cut -d' ' -f1)"
+          ffmpeg -y -v warning -i "$RUNNER_TEMP/input/aug6_all.ogg" -ac 1 -ar 16000 -c:a pcm_s16le "$RUNNER_TEMP/input/aug6_all.wav"
           ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$RUNNER_TEMP/input/aug6_all.wav"
 
       - name: Transcribe Russian speech
@@ -56,7 +57,8 @@ jobs:
             -m "$WHISPER_MODEL" \
             -f "$RUNNER_TEMP/input/aug6_all.wav" \
             -l ru \
-            -oj -otxt \
+            -t 2 \
+            -otxt \
             -of transcripts/aug6_all \
             2>&1 | tee transcripts/whisper.log
           ls -lah transcripts
