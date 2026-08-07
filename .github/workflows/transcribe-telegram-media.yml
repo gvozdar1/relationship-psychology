@@ -24,7 +24,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg cmake g++
 
-      - name: Build whisper.cpp and download multilingual small model
+      - name: Build whisper.cpp and download multilingual medium model
         run: |
           set -euxo pipefail
           git clone --depth 1 https://github.com/ggml-org/whisper.cpp.git "$RUNNER_TEMP/whisper.cpp"
@@ -32,8 +32,8 @@ jobs:
           cmake --build "$RUNNER_TEMP/whisper.cpp/build" --config Release -j2
           CLI="$RUNNER_TEMP/whisper.cpp/build/bin/whisper-cli"
           test -x "$CLI"
-          bash "$RUNNER_TEMP/whisper.cpp/models/download-ggml-model.sh" small
-          MODEL="$RUNNER_TEMP/whisper.cpp/models/ggml-small.bin"
+          bash "$RUNNER_TEMP/whisper.cpp/models/download-ggml-model.sh" medium
+          MODEL="$RUNNER_TEMP/whisper.cpp/models/ggml-medium.bin"
           test -s "$MODEL"
           echo "WHISPER_CLI=$CLI" >> "$GITHUB_ENV"
           echo "WHISPER_MODEL=$MODEL" >> "$GITHUB_ENV"
@@ -57,7 +57,7 @@ jobs:
             -m "$WHISPER_MODEL" \
             -f "$RUNNER_TEMP/input/aug6_all.wav" \
             -l ru \
-            -t 2 \
+            -t 4 \
             -otxt -osrt -oj \
             -of transcripts/aug6_all \
             2>&1 | tee transcripts/whisper.log
@@ -67,7 +67,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telegram-transcripts-small
+          name: telegram-transcripts-medium
           path: transcripts/
           if-no-files-found: warn
           retention-days: 3
