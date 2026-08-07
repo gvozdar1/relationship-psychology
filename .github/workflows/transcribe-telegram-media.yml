@@ -1,0 +1,75 @@
+name: Transcribe Telegram media
+
+on:
+  pull_request:
+    paths:
+      - 'tools/telegram-media-transcriber/run-input/**'
+      - '.github/workflows/transcribe-telegram-media.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  transcribe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Download whisper.cpp CLI
+        run: |
+          set -euxo pipefail
+          mkdir -p "$RUNNER_TEMP/whisper"
+          curl -fL --retry 3 \
+            https://github.com/ggml-org/whisper.cpp/releases/download/v1.9.2/whisper-bin-ubuntu-x64.tar.gz \
+            -o "$RUNNER_TEMP/whisper/whisper.tar.gz"
+          tar -xzf "$RUNNER_TEMP/whisper/whisper.tar.gz" -C "$RUNNER_TEMP/whisper"
+          CLI="$(find "$RUNNER_TEMP/whisper" -type f -name whisper-cli | head -n 1)"
+          test -n "$CLI"
+          chmod +x "$CLI"
+          echo "WHISPER_CLI=$CLI" >> "$GITHUB_ENV"
+
+      - name: Download multilingual Whisper small model
+        run: |
+          set -euxo pipefail
+          curl -fL --retry 3 \
+            'https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small-q5_1.bin?download=true' \
+            -o "$RUNNER_TEMP/ggml-small-q5_1.bin"
+          test -s "$RUNNER_TEMP/ggml-small-q5_1.bin"
+          echo "WHISPER_MODEL=$RUNNER_TEMP/ggml-small-q5_1.bin" >> "$GITHUB_ENV"
+
+      - name: Decode uploaded audio bundle
+        run: |
+          set -euxo pipefail
+          mkdir -p "$RUNNER_TEMP/input" transcripts
+          base64 -d tools/telegram-media-transcriber/run-input/aug6_all.ogg.b64 > "$RUNNER_TEMP/input/aug6_all.ogg"
+          ffmpeg -y -v error -i "$RUNNER_TEMP/input/aug6_all.ogg" -ac 1 -ar 16000 -c:a pcm_s16le "$RUNNER_TEMP/input/aug6_all.wav"
+          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$RUNNER_TEMP/input/aug6_all.wav"
+
+      - name: Transcribe Russian speech
+        run: |
+          set -euxo pipefail
+          "$WHISPER_CLI" \
+            -m "$WHISPER_MODEL" \
+            -f "$RUNNER_TEMP/input/aug6_all.wav" \
+            -l ru \
+            -oj -otxt \
+            -of transcripts/aug6_all \
+            2>&1 | tee transcripts/whisper.log
+          ls -lah transcripts
+
+      - name: Upload transcripts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: telegram-transcripts
+          path: transcripts/
+          if-no-files-found: warn
+          retention-days: 3
