@@ -78,7 +78,7 @@ jobs:
               -f "$f" \
               -l ru \
               -t 4 \
-              -p "$HINT" \
+              --prompt "$HINT" \
               -otxt -osrt -oj \
               -of "$out" \
               2>&1 | tee "transcripts/circle_${n}.log"
