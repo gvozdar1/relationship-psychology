@@ -1,6 +1,12 @@
 name: Transcribe Telegram media
 
 on:
+  push:
+    branches:
+      - tool-telegram-media-transcriber
+    paths:
+      - 'tools/telegram-media-transcriber/run-input/**'
+      - '.github/workflows/transcribe-telegram-media.yml'
   pull_request:
     paths:
       - 'tools/telegram-media-transcriber/run-input/**'
