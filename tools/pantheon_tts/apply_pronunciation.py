@@ -12,16 +12,16 @@ audit_path = build_dir / "pronunciation_audit.txt"
 segments = json.loads(segments_path.read_text(encoding="utf-8"))
 pronunciation = json.loads(pronunciation_path.read_text(encoding="utf-8"))
 
-# Manual correction layer for words whose stress is project-specific/slang or
-# was previously entered incorrectly. This operates only on the pronunciation
-# copy; the literary source text is never changed.
+# Manual correction layer for project-specific/slang words and previously
+# mis-stressed entries. Literary source text is never changed.
 EXACT_CORRECTIONS = {
     "ебани́стической": "ебанисти́ческой",
+    "по́пса": "попса́",
 }
 
 VOWELS = set("аеёиоуыэюяАЕЁИОУЫЭЮЯ")
 ALLOW_UNSTRESSED_MULTISYLLABLE = {
-    "обо",  # unstressed preposition in "обо мне"
+    "обо",
 }
 
 missing = []
@@ -38,10 +38,6 @@ for i, seg in enumerate(segments, start=1):
     for bad, good in EXACT_CORRECTIONS.items():
         spoken = spoken.replace(bad, good)
 
-    # Hard QA gate: every multi-syllable Russian lexical token must carry an
-    # explicit acute accent (or ё, which already fixes stress), except listed
-    # unstressed function words. This prevents a fallback path from silently
-    # returning plain unaccented Russian again.
     for token in re.findall(r"[А-Яа-яЁё\u0301-]+", spoken):
         plain = token.replace("\u0301", "").strip("-")
         if not plain:
