@@ -2,6 +2,7 @@
 
 STATUS: audio-ready
 SOURCE_TEXT: narrative/mini_stories/pantheon/01_GENEALOGICAL_PANIC.md
+RENDER_TARGET: narrative/audio/pantheon/Pantheon_S01_P01_GENEALOGICAL_PANIC_FINAL.mp3 + .wav
 
 ## Голоса
 - РАССКАЗЧИК/СТАНИСЛАВ: один основной мужской голос; разговорный, самоироничный, без театрального пафоса.
