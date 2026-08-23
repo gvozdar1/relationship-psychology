@@ -1,16 +1,7 @@
 name: Verify Kris archive
 
 on:
-  push:
-    paths:
-      - "archive/kris-project-2026-08-23/**"
-      - "messages12.html"
-      - ".github/workflows/verify-kris-archive.yml"
-  pull_request:
-    paths:
-      - "archive/kris-project-2026-08-23/**"
-      - "messages12.html"
-      - ".github/workflows/verify-kris-archive.yml"
+  workflow_dispatch:
 
 jobs:
   verify:
