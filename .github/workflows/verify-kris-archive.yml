@@ -1,0 +1,11 @@
+name: Verify Kris archive
+
+on:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 archive/kris-project-2026-08-23/tools/verify_archive.py
