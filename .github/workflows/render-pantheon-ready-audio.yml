@@ -1,0 +1,59 @@
+name: Render Pantheon Audio Ready Parts
+
+on:
+  push:
+    paths:
+      - '.github/workflows/render-pantheon-ready-audio.yml'
+      - 'narrative/audio_tools/render_pantheon.py'
+      - 'narrative/audio_scripts/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install renderer dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg espeak
+          python -m pip install --upgrade pip
+          pip install edge-tts pydub
+      - name: Render all audio-ready Pantheon parts
+        run: |
+          set -euo pipefail
+          mkdir -p narrative/audio/pantheon
+          python narrative/audio_tools/render_pantheon.py \
+            narrative/audio_scripts/01_GENEALOGICAL_PANIC_AUDIO.md \
+            narrative/audio/pantheon/Pantheon_S01_P01_GENEALOGICAL_PANIC_FINAL.mp3 \
+            narrative/audio/pantheon/Pantheon_S01_P01_GENEALOGICAL_PANIC_FINAL.wav
+          python narrative/audio_tools/render_pantheon.py \
+            narrative/audio_scripts/02_THE_ONE_WHO_CALLS_THE_NAME_AUDIO.md \
+            narrative/audio/pantheon/Pantheon_S01_P02_THE_ONE_WHO_CALLS_THE_NAME_FINAL.mp3 \
+            narrative/audio/pantheon/Pantheon_S01_P02_THE_ONE_WHO_CALLS_THE_NAME_FINAL.wav
+          python narrative/audio_tools/render_pantheon.py \
+            narrative/audio_scripts/03_DO_NOT_NAME_THE_NAMELESS_AUDIO.md \
+            narrative/audio/pantheon/Pantheon_S01_P03_DO_NOT_NAME_THE_NAMELESS_FINAL.mp3 \
+            narrative/audio/pantheon/Pantheon_S01_P03_DO_NOT_NAME_THE_NAMELESS_FINAL.wav
+          test -s narrative/audio/pantheon/Pantheon_S01_P01_GENEALOGICAL_PANIC_FINAL.mp3
+          test -s narrative/audio/pantheon/Pantheon_S01_P01_GENEALOGICAL_PANIC_FINAL.wav
+          test -s narrative/audio/pantheon/Pantheon_S01_P02_THE_ONE_WHO_CALLS_THE_NAME_FINAL.mp3
+          test -s narrative/audio/pantheon/Pantheon_S01_P02_THE_ONE_WHO_CALLS_THE_NAME_FINAL.wav
+          test -s narrative/audio/pantheon/Pantheon_S01_P03_DO_NOT_NAME_THE_NAMELESS_FINAL.mp3
+          test -s narrative/audio/pantheon/Pantheon_S01_P03_DO_NOT_NAME_THE_NAMELESS_FINAL.wav
+      - name: Commit rendered audio
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add narrative/audio/pantheon/*.mp3 narrative/audio/pantheon/*.wav
+          git diff --cached --quiet && exit 0
+          git commit -m 'audio: render Pantheon parts 01-03'
+          git push
