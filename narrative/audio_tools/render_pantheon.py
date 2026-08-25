@@ -24,31 +24,47 @@ VOICE_MAP = {
     "ВЕЛЕС": ("ru-RU-DmitryNeural", "-4%", "+8Hz", 150, 45),
     "РОД": ("ru-RU-DmitryNeural", "-14%", "-35Hz", 110, 22),
     "ВОЛК": ("ru-RU-DmitryNeural", "-10%", "-28Hz", 120, 28),
+    "ПЕРУН": ("ru-RU-DmitryNeural", "+6%", "-10Hz", 175, 58),
     "ГОЛОС ИЗ ТРЕЩИНЫ": ("ru-RU-DmitryNeural", "-12%", "-8Hz", 112, 26),
+    "ГОЛОС ИЗ ТЕЛЕФОНА": ("ru-RU-DmitryNeural", "-12%", "-8Hz", 112, 26),
+    "ГОЛОС ИЗ ВЫКЛЮЧЕННОГО ТЕЛЕФОНА": ("ru-RU-DmitryNeural", "-12%", "-8Hz", 112, 26),
     "ЖЕНСКИЙ ГОЛОС": ("ru-RU-SvetlanaNeural", "-5%", "-5Hz", 150, 60),
+    "ВСЕ": ("ru-RU-DmitryNeural", "+0%", "+0Hz", 165, 55),
+    "СВАРОГ И МОКОШЬ": ("ru-RU-DmitryNeural", "-8%", "-22Hz", 125, 30),
+}
+
+ALIASES = {
+    "ГОЛОС ИЗ ВЫКЛЮЧЕННОГО ТЕЛЕФОНА": "ГОЛОС ИЗ ВЫКЛЮЧЕННОГО ТЕЛЕФОНА",
+    "ГОЛОС ИЗ ТЕЛЕФОНА": "ГОЛОС ИЗ ТЕЛЕФОНА",
+    "ГОЛОС ИЗ ТРЕЩИНЫ": "ГОЛОС ИЗ ТРЕЩИНЫ",
+    "ЖЕНСКИЙ ГОЛОС": "ЖЕНСКИЙ ГОЛОС",
+    "СВАРОГ И МОКОШЬ": "СВАРОГ И МОКОШЬ",
 }
 
 
 def norm_speaker(raw: str) -> str:
     raw = raw.strip().upper()
     raw = raw.split(",", 1)[0].strip()
-    if raw.startswith("ЖЕНСКИЙ ГОЛОС"):
-        return "ЖЕНСКИЙ ГОЛОС"
-    if raw.startswith("ГОЛОС ИЗ ТРЕЩИНЫ"):
-        return "ГОЛОС ИЗ ТРЕЩИНЫ"
+    for prefix, canonical in ALIASES.items():
+        if raw.startswith(prefix):
+            return canonical
     return raw
 
 
 def stage_silence_ms(line: str) -> int:
-    low = line.lower()
-    m = re.search(r"(\d+)\s*сек", low)
+    low = line.lower().replace(",", ".")
+    m = re.search(r"(\d+(?:\.\d+)?)\s*сек", low)
     if m:
-        return int(m.group(1)) * 1000
+        return int(float(m.group(1)) * 1000)
+    if "абсолютная тишина" in low:
+        return 2000
+    if "длинная пауза" in low:
+        return 1500
     if "тишина" in low:
         return 1800
     if "пауза" in low:
         return 900
-    if "sfx" in low or "треск" in low or "щелчок" in low:
+    if "sfx" in low or "треск" in low or "щелчок" in low or "шорох" in low:
         return 450
     return 350
 
@@ -70,6 +86,10 @@ def parse_script(text: str):
         spoken = spoken.strip()
         if speaker in VOICE_MAP and spoken:
             items.append(("speech", speaker, spoken))
+        elif spoken:
+            # Do not silently lose scripted lines. Unknown speakers fall back to narrator.
+            print(f"Unknown speaker '{speaker_raw}', using narrator voice")
+            items.append(("speech", "РАССКАЗЧИК", spoken))
     return items
 
 
@@ -99,6 +119,7 @@ async def render(script: Path, mp3_out: Path, wav_out: Path):
 
     master = AudioSegment.silent(duration=350)
     used_fallback = False
+    speech_count = 0
     with tempfile.TemporaryDirectory() as td_raw:
         td = Path(td_raw)
         idx = 0
@@ -120,12 +141,13 @@ async def render(script: Path, mp3_out: Path, wav_out: Path):
                 audio = AudioSegment.from_wav(wav_chunk)
             master += audio + AudioSegment.silent(duration=180)
             idx += 1
+            speech_count += 1
 
     mp3_out.parent.mkdir(parents=True, exist_ok=True)
     master = master.set_channels(1).set_frame_rate(22050)
     master.export(mp3_out, format="mp3", bitrate="64k")
     master.export(wav_out, format="wav")
-    print(f"Rendered {idx} speech chunks")
+    print(f"Rendered {speech_count} speech chunks")
     print(f"Fallback used: {used_fallback}")
     print(f"MP3: {mp3_out} ({mp3_out.stat().st_size} bytes)")
     print(f"WAV: {wav_out} ({wav_out.stat().st_size} bytes)")
