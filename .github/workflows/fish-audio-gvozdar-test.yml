@@ -1,0 +1,42 @@
+name: Fish Audio Gvozdar Test
+
+on:
+  push:
+    paths:
+      - 'narrative/audio_tools/FISH_RENDER_TRIGGER.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  synthesize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check secret
+        env:
+          FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
+        run: |
+          if [ -z "$FISH_API_KEY" ]; then
+            echo 'FISH_API_KEY is missing'
+            exit 1
+          fi
+      - name: Generate Gvozdar test
+        env:
+          FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
+        run: |
+          mkdir -p out
+          curl --fail-with-body -sS -X POST https://api.fish.audio/v1/tts \
+            -H "Authorization: Bearer $FISH_API_KEY" \
+            -H "Content-Type: application/json" \
+            -H "model: s2-pro" \
+            -d '{"text":"Крис, я только на минуту посмотрю, что там происходит.","reference_id":"3ae06a3f3ca64f4c93d6853f45bed33d","format":"mp3"}' \
+            --output out/gvozdar_fish_test.mp3
+          test -s out/gvozdar_fish_test.mp3
+      - name: Upload test audio
+        uses: actions/upload-artifact@v4
+        with:
+          name: gvozdar-fish-test
+          path: out/gvozdar_fish_test.mp3
+          if-no-files-found: error
