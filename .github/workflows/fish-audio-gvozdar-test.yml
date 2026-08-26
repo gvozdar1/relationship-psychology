@@ -14,29 +14,44 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check secret
-        env:
-          FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
-        run: |
-          if [ -z "$FISH_API_KEY" ]; then
-            echo 'FISH_API_KEY is missing'
-            exit 1
-          fi
-      - name: Generate Gvozdar test
+
+      - name: Generate Gvozdar test with safe diagnostics
+        id: fish
         env:
           FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
         run: |
           mkdir -p out
-          curl --fail-with-body -sS -X POST https://api.fish.audio/v1/tts \
+          : > out/diagnostics.txt
+          if [ -z "$FISH_API_KEY" ]; then
+            echo 'secret_present=no' >> out/diagnostics.txt
+            echo 'http_code=not_called' >> out/diagnostics.txt
+            exit 0
+          fi
+          echo 'secret_present=yes' >> out/diagnostics.txt
+          HTTP_CODE=$(curl -sS -w '%{http_code}' -X POST https://api.fish.audio/v1/tts \
             -H "Authorization: Bearer $FISH_API_KEY" \
             -H "Content-Type: application/json" \
             -H "model: s2-pro" \
             -d '{"text":"Крис, я только на минуту посмотрю, что там происходит.","reference_id":"3ae06a3f3ca64f4c93d6853f45bed33d","format":"mp3"}' \
-            --output out/gvozdar_fish_test.mp3
-          test -s out/gvozdar_fish_test.mp3
-      - name: Upload test audio
+            --output out/response.bin || true)
+          echo "http_code=$HTTP_CODE" >> out/diagnostics.txt
+          FILE_TYPE=$(file -b --mime-type out/response.bin 2>/dev/null || true)
+          echo "mime_type=$FILE_TYPE" >> out/diagnostics.txt
+          SIZE=$(wc -c < out/response.bin 2>/dev/null || echo 0)
+          echo "bytes=$SIZE" >> out/diagnostics.txt
+          if [ "$HTTP_CODE" = "200" ]; then
+            mv out/response.bin out/gvozdar_fish_test.mp3
+            echo 'result=audio_generated' >> out/diagnostics.txt
+          else
+            echo 'result=api_error' >> out/diagnostics.txt
+            echo 'response:' >> out/diagnostics.txt
+            head -c 3000 out/response.bin >> out/diagnostics.txt || true
+          fi
+
+      - name: Upload diagnostics and audio if generated
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: gvozdar-fish-test
-          path: out/gvozdar_fish_test.mp3
+          path: out/
           if-no-files-found: error
