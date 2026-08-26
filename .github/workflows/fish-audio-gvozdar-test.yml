@@ -7,51 +7,60 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   synthesize:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Generate Gvozdar test with safe diagnostics
-        id: fish
+      - name: Generate and persist Fish Audio test
         env:
           FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p out
           : > out/diagnostics.txt
+
           if [ -z "$FISH_API_KEY" ]; then
             echo 'secret_present=no' >> out/diagnostics.txt
             echo 'http_code=not_called' >> out/diagnostics.txt
-            exit 0
-          fi
-          echo 'secret_present=yes' >> out/diagnostics.txt
-          HTTP_CODE=$(curl -sS -w '%{http_code}' -X POST https://api.fish.audio/v1/tts \
-            -H "Authorization: Bearer $FISH_API_KEY" \
-            -H "Content-Type: application/json" \
-            -H "model: s2-pro" \
-            -d '{"text":"Крис, я только на минуту посмотрю, что там происходит.","reference_id":"3ae06a3f3ca64f4c93d6853f45bed33d","format":"mp3"}' \
-            --output out/response.bin || true)
-          echo "http_code=$HTTP_CODE" >> out/diagnostics.txt
-          FILE_TYPE=$(file -b --mime-type out/response.bin 2>/dev/null || true)
-          echo "mime_type=$FILE_TYPE" >> out/diagnostics.txt
-          SIZE=$(wc -c < out/response.bin 2>/dev/null || echo 0)
-          echo "bytes=$SIZE" >> out/diagnostics.txt
-          if [ "$HTTP_CODE" = "200" ]; then
-            mv out/response.bin out/gvozdar_fish_test.mp3
-            echo 'result=audio_generated' >> out/diagnostics.txt
           else
-            echo 'result=api_error' >> out/diagnostics.txt
-            echo 'response:' >> out/diagnostics.txt
-            head -c 3000 out/response.bin >> out/diagnostics.txt || true
+            echo 'secret_present=yes' >> out/diagnostics.txt
+            HTTP_CODE=$(curl -sS -w '%{http_code}' -X POST https://api.fish.audio/v1/tts \
+              -H "Authorization: Bearer $FISH_API_KEY" \
+              -H "Content-Type: application/json" \
+              -H "model: s2-pro" \
+              -d '{"text":"Крис, я только на минуту посмотрю, что там происходит.","reference_id":"3ae06a3f3ca64f4c93d6853f45bed33d","format":"mp3"}' \
+              --output out/response.bin || true)
+            echo "http_code=$HTTP_CODE" >> out/diagnostics.txt
+            FILE_TYPE=$(file -b --mime-type out/response.bin 2>/dev/null || true)
+            SIZE=$(wc -c < out/response.bin 2>/dev/null || echo 0)
+            echo "mime_type=$FILE_TYPE" >> out/diagnostics.txt
+            echo "bytes=$SIZE" >> out/diagnostics.txt
+            if [ "$HTTP_CODE" = "200" ]; then
+              mv out/response.bin out/gvozdar_fish_test.mp3
+              echo 'result=audio_generated' >> out/diagnostics.txt
+            else
+              echo 'result=api_error' >> out/diagnostics.txt
+              echo 'response:' >> out/diagnostics.txt
+              head -c 3000 out/response.bin >> out/diagnostics.txt || true
+            fi
           fi
 
-      - name: Upload diagnostics and audio if generated
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: gvozdar-fish-test
-          path: out/
-          if-no-files-found: error
+          DIAG_B64=$(base64 -w0 out/diagnostics.txt)
+          curl -sS --fail-with-body -X PUT \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/contents/narrative/audio/pantheon/fish_test_${GITHUB_RUN_ID}_diagnostics.txt" \
+            -d "{\"message\":\"audio: save Fish test diagnostics\",\"content\":\"$DIAG_B64\"}"
+
+          if [ -s out/gvozdar_fish_test.mp3 ]; then
+            AUDIO_B64=$(base64 -w0 out/gvozdar_fish_test.mp3)
+            curl -sS --fail-with-body -X PUT \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/$GITHUB_REPOSITORY/contents/narrative/audio/pantheon/fish_test_${GITHUB_RUN_ID}.mp3" \
+              -d "{\"message\":\"audio: save Fish Gvozdar test\",\"content\":\"$AUDIO_B64\"}"
+          fi
