@@ -57,3 +57,5 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m 'audio: render Book 1 part 01 Family Connection with Fish'
           git push
+
+# render-trigger: 2026-09-04T08:40+02:00
