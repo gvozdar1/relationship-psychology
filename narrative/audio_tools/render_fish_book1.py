@@ -24,7 +24,11 @@ VOICE_IDS = {
 
 def parse_script(path: Path):
     text = path.read_text(encoding="utf-8")
-    body = text.split("---", 1)[1] if "---" in text else text
+    # The header itself documents the literal token `---`, so splitting on the
+    # first occurrence is unsafe. Only a standalone Markdown separator starts
+    # the TTS body.
+    match = re.search(r"(?m)^---\s*$", text)
+    body = text[match.end():] if match else text
     blocks = []
     for raw in body.splitlines():
         line = raw.strip()
