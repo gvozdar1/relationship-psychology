@@ -37,8 +37,9 @@
 | AUD-0001 | 08.08.2026 | evidence-audit | Переклассификация утверждений после проверки `SRC-0001`–`SRC-0003` | `project/audits/2026/08/08/evidence-audit.md` | active |
 | AUD-0002 | 15.09.2026 | transfer-audit | Сверка доступных вложений текущего чата с Git-объектами и граница полноты | `archive/audits/2026/09/15/current-chat-transfer/AUDIT.md` | active |
 | AUD-0003 | 15.09.2026 | metadata-integrity-audit | Исправление коллизий ID, регистрация orphaned chat sources, глобальная уникальность ID | `archive/audits/2026/09/15/source-registry-repair/AUDIT_AND_REPAIR.md` | active |
-| AUD-0004 | 15.09.2026 | completion-audit | Матрица покрытия текущего большого чата, поиск пропусков и consistency gates | `project/audits/2026/09/15/current-chat-full-completion-audit.md` | active |
+| AUD-0004 | 15.09.2026 | completion-audit | Матрица покрытия текущего большого чата, поиск пропусков и consistency gates | `project/audits/2026/09/15/current-chat-full-completion-audit.md` | active for broad transfer-scope; superseded by AUD-0006 for literal line-by-line claims |
 | AUD-0005 | 15.09.2026 | repository-structure-audit | Финальная сортировка по датам, исправление ссылок, аудит дублей/повторов и проверка остаточного `undated` | `project/audits/2026/09/15/repository-date-order-and-duplicate-audit.md` | active |
+| AUD-0006 | 15.09.2026 | completion-audit | Посообщенческий аудит текущего чата, доказательные коррекции «маргарина», проверка вложений и раздельных архивов | `project/audits/2026/09/15/current-chat-line-by-line-and-archive-audit.md` | active; authoritative for literal line-by-line claims |
 
 ## SRC-0009: правило использования
 
