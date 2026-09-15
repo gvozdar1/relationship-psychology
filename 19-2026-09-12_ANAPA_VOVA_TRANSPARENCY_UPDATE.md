@@ -4,7 +4,7 @@
 
 Пост-мастерное дополнение по событиям 12.09.2026. Дополняет `09_COMBINED_MASTER.md`, `17-2026-09-11_SIGNIFICANCE_QUERY_AND_KRASNODAR_UPDATE.md` и `18-2026-09-12_AFFECTIONATE_ADDRESS_UPDATE.md`.
 
-Источник: `sources/2026-09-12-anapa-vova-trip.md` (`SRC-0009`).
+Источник: `sources/2026-09-12-anapa-vova-trip.md` (`SRC-0019`).
 
 ---
 
