@@ -1,67 +1,90 @@
 # Migration audit — 2026-09-15
 
 ## Objective
-Проверить фактическое выполнение переноса текущего чата и связанных файлов в GitHub.
+Проверить фактическое выполнение переноса текущего чата и связанных файлов в GitHub и закончить всё независимое, что доступно без повторной загрузки недоступных бинарников.
 
-## Evidence rule
-`DONE` допускается только при наблюдаемом доказательстве физического наличия данных в GitHub. Manifest, описание или локально подготовленный файл не равны переносу байтов в репозиторий.
+## AI-Psychiatry evidence rule
+`DONE` допускается только при наблюдаемом доказательстве физического наличия данных в GitHub. Manifest, описание, память, локальная materialization или успешно созданный, но не сверенный blob не равны подтверждённому переносу.
 
-## Подтверждено
-- `sources/chatgpt/2026-09-15_CURRENT_CHAT_ARCHIVE.md` присутствует в GitHub.
-- `sources/chatgpt/2026-09-15_CHAT_ARCHIVE_DELTA_AFTER_TRANSFER.md` присутствует в GitHub.
-- `sources/chatgpt/26_TIMELINE_MARCH_APRIL_2026.md` присутствует отдельно, размер 12773 bytes.
-- `sources/chatgpt/02_Хронология_Крис.txt` присутствует.
-- `sources/chatgpt/07_Ключевые_цитаты.txt` присутствует.
-- legacy-набор `sources/messages12/b64/` неполон: `part03` отсутствует.
+## Inventory
+Files surface текущего проекта/чата показала **35 файлов**:
+- 17 old user-uploaded MP4;
+- 1 generated ZIP;
+- 17 Project-backed source files.
 
-## Критическая поправка по exact-byte bundle
-В предыдущей версии этого файла было ошибочно указано, что
+Полный список: `sources/chatgpt/PROJECT_FILE_INVENTORY_2026-09-15.md`.
+
+## Подтверждено в GitHub
+- `sources/chatgpt/2026-09-15_CURRENT_CHAT_ARCHIVE.md`;
+- `sources/chatgpt/2026-09-15_CHAT_ARCHIVE_DELTA_AFTER_TRANSFER.md`;
+- `sources/chatgpt/26_TIMELINE_MARCH_APRIL_2026.md`, размер 12773 bytes;
+- `sources/chatgpt/02_Хронология_Крис.txt`;
+- `sources/chatgpt/07_Ключевые_цитаты.txt`;
+- три distinct source-варианта `Психология отношений с Крис.txt` в `sources/project_snapshot_2026-09-15/`;
+- `sources/project_snapshot_2026-09-15/Ветка_Ветка_Ветка_Ветка_Флирт_и_доверие.txt`;
+- readable-content archive `Гороскоп для Скорпиона.txt` в двух последовательных частях + reconstruction note;
+- baseline/canonical project documents и source manifests, уже существовавшие в репозитории.
+
+## Исправленная ошибка exact-byte bundle
+В ранней версии аудита было ошибочно указано, что
 `sources/chatgpt/current_chat_materializable_files_2026-09-15.tar.xz`
 имеет размер 98456 bytes и содержит полный exact-byte snapshot.
 
-Фактическая проверка GitHub contents показывает для файла, реально находящегося в ветке:
-- размер: **8138 bytes**;
+Фактическая проверка GitHub contents показала:
+- реально записанный размер: **8138 bytes**;
 - Git blob SHA: `b09281144681b90372fa3bbf91ca89180baf2ba3`.
 
-Коммит `21d3e34cab5df9f60407ec3545e6e87988d6c7ed` изменил `08_SOURCE_REGISTRY.md`, но не заменил бинарный tar.xz. Поэтому утверждение `verified-exact-byte-bundle` было ложноположительным.
+Следовательно transfer был усечён и не являлся evidence of completion.
+Неполный tar.xz удалён из рабочей ветки коммитом `881ee0ab064227da690d60c6c28bbe89075b5bf3`. История остаётся в Git.
 
-## Project-backed files
-17 Project-backed файлов удалось получить локально через Files/materialize. Это подтверждает, что они были доступны рабочей среде на момент аудита, но само по себе **не доказывает**, что их exact bytes записаны в GitHub.
-
-`messages12.html` был локально materialized:
-- размер: **630716 bytes**;
+## `messages12.html`
+Project source был materialized в рабочей среде и проверен:
+- size: **630716 bytes**;
+- lines: **27380**;
 - SHA-256: `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`.
 
-Поскольку legacy multipart неполон, а текущий tar.xz в GitHub не соответствует заявленному full bundle, exact-byte сохранность `messages12.html` в GitHub сейчас **не подтверждена**.
+Legacy `sources/messages12/b64/` содержит `part01`, `part02`, `part04`, но **не содержит `part03`**. Поэтому старое утверждение `lossless-reconstructable` ложно.
 
-## MP4
-Текущая Files surface показывает 17 старых uploaded MP4. Попытка materialize первых пяти вернула ошибку `The requested Library file does not have a downloadable backing file yet.`
+В этом сеансе GitHub write interface принимает UTF-8/base64 content strings, но не local backing-file reference. Попытки использовать container/Python как binary bridge завершались инфраструктурной ошибкой. Поэтому безопасный byte-exact перенос 630716-byte HTML через materialized local file не подтверждён.
 
-Статус: **BLOCKED_BY_HARD_GATE** до повторной загрузки или появления доступного raw source.
+Status: **BLOCKED_BY_TOOL_TRANSFER_GATE / exact GitHub bytes not confirmed**.
 
-## Скриншоты
-В репозитории есть manifest для 161 канонического скриншота и часть производных данных. Полный набор exact original bytes не подтверждён, а raw screenshot files на текущей Files surface недоступны.
+## Project-backed text sources
+17 Project-backed файлов были доступны materialization. Для тех distinct readable text sources, которых не хватало в GitHub, выполнено дополнительное текстовое архивирование под уникальными именами. Это повышает смысловую/текстовую сохранность, но не подменяется заявлением byte-exact там, где line endings/terminal newline не сверялись.
 
-Статус: **BLOCKED_BY_HARD_GATE** до предоставления исходных изображений/архива.
+## 17 old MP4 uploads
+Попытка materialize первых пяти вернула одинаковое:
+`The requested Library file does not have a downloadable backing file yet.`
+
+Остальные 12 относятся к тому же old-upload source class. Без доступных raw bytes физический перенос нельзя доказать.
+
+Status: **BLOCKED_BY_HARD_GATE**.
+
+## 161 screenshot originals
+В репозитории есть manifest, hashes/metadata и часть производных данных. Current Files surface не предоставляет raw screenshot files, поэтому все exact original bytes не могут быть доперенесены или перепроверены этим сеансом.
+
+Status: **BLOCKED_BY_HARD_GATE**.
 
 ## Generated ZIP
-`26_TIMELINE_MARCH_APRIL_2026.zip` существует как generated файл текущего чата, но отдельный подтверждённый binary blob ZIP в GitHub не найден. MD из него перенесён отдельно.
+`26_TIMELINE_MARCH_APRIL_2026.zip` доступен как generated artifact; extracted MD перенесён и подтверждён. Прямой binary upload connector из local backing file отсутствует/не сработал через доступный bridge.
+
+Status ZIP binary: **BLOCKED_BY_TOOL_TRANSFER_GATE**.
 
 ## Completion matrix
-| Requirement | Status |
-|---|---|
-| Текстовый архив доступного контекста чата | VERIFIED |
-| Post-transfer delta | VERIFIED |
-| `26_TIMELINE_MARCH_APRIL_2026.md` | VERIFIED |
-| Хронология / ключевые цитаты | VERIFIED |
-| 17 Project-backed файлов exact-byte snapshot | NOT CONFIRMED IN GITHUB |
-| `messages12.html` exact bytes | NOT CONFIRMED IN GITHUB |
-| Generated ZIP binary | NOT CONFIRMED IN GITHUB |
-| 17 старых MP4 | BLOCKED_BY_HARD_GATE |
-| 161 original screenshots | BLOCKED_BY_HARD_GATE |
-| Legacy messages12 multipart | FAILED AS COMPLETION PROOF |
+| Requirement | Status | Evidence |
+|---|---|---|
+| Текстовый архив доступного контекста чата | VERIFIED | current archive + delta |
+| `26_TIMELINE_MARCH_APRIL_2026.md` | VERIFIED | direct GitHub file 12773 bytes |
+| Хронология / ключевые цитаты | VERIFIED | direct GitHub files |
+| Distinct readable Project text sources | SUBSTANTIALLY MIGRATED | snapshots + canonical/baseline docs |
+| `messages12.html` exact bytes | BLOCKED_BY_TOOL_TRANSFER_GATE | local source verified; GitHub exact copy not proven |
+| Generated ZIP binary | BLOCKED_BY_TOOL_TRANSFER_GATE | MD preserved; ZIP blob not proven |
+| 17 old MP4 uploads | BLOCKED_BY_HARD_GATE | backing bytes unavailable |
+| Все 161 screenshot originals | BLOCKED_BY_HARD_GATE | raw originals unavailable |
+| Legacy messages12 multipart | FAILED AS COMPLETION PROOF | `part03` missing |
+| Erroneous 8138-byte tar.xz | REMOVED | commit `881ee0ab064227da690d60c6c28bbe89075b5bf3` |
 
 ## Final verdict
-**PARTIALLY VERIFIED / NOT FULLY COMPLETE.**
+**MAXIMUM REACHED WITH CURRENT TOOL ACCESS / NOT FULLY COMPLETE.**
 
-Полный `DONE` запрещён, пока не появится доказательство физического наличия оставшихся exact bytes в GitHub.
+Всё независимое, что можно было надёжно записать через доступные GitHub text operations, перенесено либо приведено к правдивому статусу. Полный `DONE` требует повторного предоставления недоступных raw media и/или работающего file-to-GitHub binary bridge.
