@@ -2,7 +2,7 @@
 
 Статус: хронологическое обновление проекта.
 
-Основание: `chronology/undated/derived/src-0021-session-kriskislis-victory-condition.md`.
+Основание: `project/context/2026/09/15/src-0021-session-kriskislis-victory-condition.md`.
 
 Приоритет: ниже `09_COMBINED_MASTER.md`, выше будущих свободных реконструкций этого эпизода.
 
