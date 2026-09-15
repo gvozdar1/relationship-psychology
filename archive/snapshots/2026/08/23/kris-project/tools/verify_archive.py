@@ -4,8 +4,8 @@ import hashlib
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[3]
-MANIFEST = REPO / "archive/kris-project-2026-08-23/ARCHIVE_MANIFEST.tsv"
+REPO = Path(__file__).resolve().parents[7]
+MANIFEST = REPO / "archive/snapshots/2026/08/23/kris-project/ARCHIVE_MANIFEST.tsv"
 
 def hash_file(path):
     h = hashlib.sha256()
