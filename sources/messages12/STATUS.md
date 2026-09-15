@@ -1,4 +1,4 @@
-# STATUS: exact-byte-github-preservation-not-confirmed
+# STATUS: exact-byte-github-preservation-blocked-by-transfer-gate
 
 ## Проверено 15.09.2026
 Legacy-набор `b64/` неполон:
@@ -10,23 +10,25 @@ Legacy-набор `b64/` неполон:
 Следовательно старый multipart **не является lossless-reconstructable**.
 
 ## Исходный `messages12.html`
-Во время аудита Project source удалось materialize локально:
+Во время аудита Project source удалось materialize/прочитать:
 - размер: **630716 bytes**;
-- SHA-256: `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`.
+- строк: **27380**;
+- SHA-256 materialized source: `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`.
 
-Это подтверждает исходный файл в рабочей среде, но не его физическую запись в GitHub.
+Это подтверждает исходный файл в рабочей среде, но само по себе не доказывает запись exact bytes в GitHub.
 
-## Ошибка предыдущего статуса
-Ранее было указано, что exact bytes находятся в
-`sources/chatgpt/current_chat_materializable_files_2026-09-15.tar.xz`
-размером 98456 bytes.
+## Ошибка предыдущего bundle
+Ранее было ошибочно указано, что exact bytes находятся в `sources/chatgpt/current_chat_materializable_files_2026-09-15.tar.xz` размером 98456 bytes.
 
-Фактический GitHub blob по этому пути имеет размер **8138 bytes** и SHA `b09281144681b90372fa3bbf91ca89180baf2ba3`.
-Поэтому он не может считаться доказательством заявленного полного snapshot.
+Фактический GitHub blob имел размер **8138 bytes**. После обнаружения несоответствия неполный tar.xz был удалён из рабочей ветки коммитом:
+`881ee0ab064227da690d60c6c28bbe89075b5bf3`.
+
+## Почему перенос exact HTML сейчас не закрыт
+GitHub connector в этом сеансе принимает текстовое `content`/base64, но не local materialized file reference. Binary/file bridge через container/Python во время аудита возвращал инфраструктурную ошибку. Ручная реконструкция 27380 строк не считается безопасной заменой byte-exact переносу исходника.
 
 ## Текущий статус
 - исходный `messages12.html`: **LOCAL SOURCE VERIFIED DURING AUDIT**;
-- exact-byte preservation in GitHub: **NOT CONFIRMED**;
+- exact-byte preservation in GitHub: **BLOCKED_BY_TOOL_TRANSFER_GATE / NOT CONFIRMED**;
 - legacy multipart: **INCOMPLETE / OBSOLETE AS COMPLETION EVIDENCE**.
 
-Не удалять старые части: они остаются историческим артефактом миграции.
+Старые части не удалять: это исторический артефакт миграции, но не каноническое доказательство полной сохранности.
