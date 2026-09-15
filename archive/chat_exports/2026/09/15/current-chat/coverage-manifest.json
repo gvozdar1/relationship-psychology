@@ -14,7 +14,7 @@
   ],
   "exact_transcript": {
     "path": "archive/chat_exports/2026/09/15/current-chat/user-visible-transcript.json",
-    "status": "exact for the user-visible turns currently exposed to this runtime through the cutoff message",
+    "status": "message-content preserving for the user-visible turns currently exposed to this runtime through the cutoff message; UI-only rendering wrappers/citation widgets may be normalized or omitted",
     "cutoff_user_message": "@AI Psychiatry @GitHub — request to export the whole chat to GitHub"
   },
   "pre_window_material_map": [
@@ -92,7 +92,8 @@
   "existing_audits": [
     "archive/audits/2026/09/15/current-chat-transfer/AUDIT.md",
     "project/audits/2026/09/15/current-chat-full-completion-audit.md",
-    "project/audits/2026/09/15/repository-date-order-and-duplicate-audit.md"
+    "project/audits/2026/09/15/repository-date-order-and-duplicate-audit.md",
+    "project/audits/2026/09/15/current-chat-json-export-audit.md"
   ],
   "known_limit": "Earlier turns that are no longer exposed as raw user-visible transcript text after context compression cannot be recreated verbatim from summaries. They are mapped above to existing source documents and remain explicitly classified by their original evidence level."
 }
