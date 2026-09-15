@@ -7,6 +7,7 @@
   "cutoff": "through the user's export command invoking AI Psychiatry and GitHub",
   "roles_included": ["user", "assistant"],
   "roles_excluded": ["system", "developer", "tool", "hidden reasoning"],
+  "fidelity": "message content preserved for the user-visible turns currently exposed to this runtime; UI-only citation/rendering wrappers may be normalized or omitted",
   "parts": [
     {
       "path": "archive/chat_exports/2026/09/15/current-chat/parts/part-001.json",
@@ -26,5 +27,5 @@
     }
   ],
   "coverage_manifest": "archive/chat_exports/2026/09/15/current-chat/coverage-manifest.json",
-  "note": "This is the exact user-visible transcript segment currently exposed to the runtime. Earlier project-relevant portions of the same large chat that are no longer exposed verbatim after context compression are mapped in coverage-manifest.json to the already-created SRC-* documents. Those reconstructed/source-card materials keep their original evidence classification and are not falsely labeled as verbatim transcript."
+  "note": "This export contains every user/assistant message currently exposed to this runtime through the cutoff. Earlier project-relevant portions of the same large chat that are no longer exposed verbatim after context compression are mapped in coverage-manifest.json to the already-created SRC-* documents. Those reconstructed/source-card materials keep their original evidence classification and are not falsely labeled as verbatim transcript."
 }
