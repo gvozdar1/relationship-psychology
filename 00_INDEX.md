@@ -13,7 +13,7 @@
 4. Для практических ходов — `05_COMMUNICATION_PROTOCOL.md` и `06_DECISION_MATRIX.md`.
 5. Для обновления проекта после новых событий — `07_UPDATE_PROTOCOL.md`.
 6. Для проверки источников — `08_SOURCE_REGISTRY.md`.
-7. Для физической полноты миграции — `MIGRATION_STATUS.md` и `MIGRATION_AUDIT_2026-09-15.md`.
+7. Для физической полноты миграции — `MIGRATION_STATUS.md`, `MIGRATION_AUDIT_2026-09-15.md` и `sources/chatgpt/PROJECT_FILE_INVENTORY_2026-09-15.md`.
 
 ## Список файлов
 - `01_PROJECT_CORE.md` — ядро проекта, сущности, роли, границы.
@@ -45,17 +45,16 @@
 - `sources/chatgpt/02_Хронология_Крис.txt`
 - `sources/chatgpt/07_Ключевые_цитаты.txt`
 - `sources/chatgpt/26_TIMELINE_MARCH_APRIL_2026.md`
+- `sources/chatgpt/PROJECT_FILE_INVENTORY_2026-09-15.md` — инвентарь 35 файлов текущей поверхности и статус каждого класса.
+- `sources/project_snapshot_2026-09-15/Психология_отношений_с_Крис_variant_A.txt`
+- `sources/project_snapshot_2026-09-15/Психология_отношений_с_Крис_variant_B.txt`
+- `sources/project_snapshot_2026-09-15/Психология_отношений_с_Крис_variant_C.txt`
+- `sources/project_snapshot_2026-09-15/Ветка_Ветка_Ветка_Ветка_Флирт_и_доверие.txt`
 - `MIGRATION_AUDIT_2026-09-15.md` — evidence-based аудит переноса.
 - `MIGRATION_STATUS.md` — текущий физический статус.
 
-## Важно про `current_chat_materializable_files_2026-09-15.tar.xz`
-Этот путь существует, но после повторной проверки **не считается подтверждённым full exact-byte bundle**.
-
-Фактический GitHub blob:
-- размер: **8138 bytes**;
-- SHA: `b09281144681b90372fa3bbf91ca89180baf2ba3`.
-
-Ранее заявленная версия 98456 bytes не была подтверждена как записанная в GitHub. Поэтому нельзя считать этот tar.xz доказательством сохранности всех Project-backed raw files или полного `messages12.html`.
+## Исправление ошибочного bundle
+Файл `sources/chatgpt/current_chat_materializable_files_2026-09-15.tar.xz`, который ранее был ошибочно принят за полный 98456-byte snapshot, фактически имел размер 8138 bytes. После проверки он был удалён из рабочей ветки как вводящий в заблуждение неполный артефакт. История коммита остаётся в Git и позволяет проверить факт ошибки.
 
 ## Приоритет при конфликте документов
 1. `09_COMBINED_MASTER.md`
@@ -69,8 +68,8 @@
 ## Физическая полнота архива
 По аудиту 15.09.2026:
 
-**Подтверждено:** текстовый архив текущего чата, delta, отдельный MD таймлайна, хронология и ключевые цитаты.
+**Подтверждено:** текстовый архив текущего чата, delta, отдельный MD таймлайна, хронология, ключевые цитаты и дополнительные читаемые Project-source snapshots.
 
-**Не подтверждено/заблокировано:** exact-byte snapshot всех Project-backed файлов, полный `messages12.html` в GitHub, generated ZIP binary, 17 старых MP4 и exact originals 161 screenshots.
+**Не подтверждено/заблокировано:** полный `messages12.html` exact bytes в GitHub, generated ZIP binary, 17 старых MP4 и exact originals 161 screenshots. Некоторые Project-backed документы доступны для чтения в Project, но их byte-exact GitHub snapshot требует отдельного доказательства.
 
 Аналитическая полнота и физическая миграция — разные вещи. `DONE` не ставить до закрытия hard gates.
