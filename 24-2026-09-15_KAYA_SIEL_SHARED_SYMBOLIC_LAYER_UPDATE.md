@@ -2,7 +2,7 @@
 
 ## Источник
 
-`SRC-0015` — `sources/chat/2026-09-15-current-chat-kaya-siel-shared-symbolic-layer.md`.
+`SRC-0016` — `sources/chat/2026-09-15-current-chat-kaya-siel-shared-symbolic-layer.md`.
 
 ---
 
