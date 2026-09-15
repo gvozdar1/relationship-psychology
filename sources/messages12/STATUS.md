@@ -1,33 +1,34 @@
-# STATUS: migrated-lossless-reconstructable
+# STATUS: preserved-via-2026-09-15-exact-byte-bundle
 
-`messages12.html` полностью сохранён в рабочей ветке в lossless-реконструируемой форме.
+## Corrected audit finding
+Ранее этот файл утверждал, что `messages12.html` полностью сохранён через четыре последовательные base64-части XZ-архива.
 
-## Хранилище
-Четыре последовательные base64-части XZ-архива:
-- `b64/messages12.html.xz.b64.part01`
-- `b64/messages12.html.xz.b64.part02`
-- `b64/messages12.html.xz.b64.part03`
-- `b64/messages12.html.xz.b64.part04`
+Проверка дерева GitHub 15.09.2026 показала:
+- `b64/messages12.html.xz.b64.part01` — присутствует;
+- `b64/messages12.html.xz.b64.part02` — присутствует;
+- `b64/messages12.html.xz.b64.part03` — **отсутствует**;
+- `b64/messages12.html.xz.b64.part04` — присутствует.
 
-## Контроль частей
-- part01: 18000 байт текста, SHA-256 `17ff16778bb8575a315f56640c3462c7db88801f8ace35170860231172277f50`
-- part02: 18000, SHA-256 `ab31bb958689f532c91e1b4b32080af1bfb11642392112d1e83c6883b99033ef`
-- part03: 18000, SHA-256 `070b2d14e9ce06101e94f7760466a3c8780ccf91ea27294e6a654ffdc8c5ff8d`
-- part04: 14204, SHA-256 `3c3ce96f95a321d85740cb0eb37b84eb063cae15f067e913a937ca7ec3c857dd`
+Следовательно legacy-набор `b64/` **не является lossless-reconstructable** и не должен использоваться как доказательство полной миграции.
 
-## Реконструкция
-```bash
-cat b64/messages12.html.xz.b64.part01 \
-    b64/messages12.html.xz.b64.part02 \
-    b64/messages12.html.xz.b64.part03 \
-    b64/messages12.html.xz.b64.part04 \
-  | base64 -d > messages12.html.xz
-xz -dc messages12.html.xz > messages12.html
-sha256sum messages12.html
-```
+## Новый подтверждённый источник байтов
+Исходный `messages12.html` был заново materialized из текущего Project source и проверен:
+- размер: **630716 bytes**;
+- SHA-256: `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`.
 
-Ожидаемые контрольные данные:
-- XZ: 51152 байта, SHA-256 `7a362a7cd5fd08e1420516e68a842a6ddbe44c804d736aaacec8407f42571de2`
-- восстановленный HTML: 630716 байт, SHA-256 `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`
+Exact bytes этого HTML теперь находятся внутри:
+`sources/chatgpt/current_chat_materializable_files_2026-09-15.tar.xz`
 
-Статус `migrated` означает именно сохранение полного содержимого, а не одного manifest-файла.
+SHA-256 tar.xz:
+`fe2dcaf73ed8b9d797fca38c3db18c5f8d116576a3637e0d9138170fa8b98c68`
+
+Внутри архива путь:
+`project_files/messages12.html`
+
+Также внутри есть `MANIFEST.json` с размером и SHA-256 каждого вложенного файла.
+
+## Статус
+- exact content `messages12.html`: **PRESERVED / VERIFIED VIA NEW BUNDLE**;
+- старый четырёхчастный `sources/messages12/b64/` архив: **INCOMPLETE / OBSOLETE AS COMPLETION EVIDENCE**.
+
+Не удалять старые части: они остаются историческим артефактом миграции, но не являются каноническим доказательством полной сохранности.
