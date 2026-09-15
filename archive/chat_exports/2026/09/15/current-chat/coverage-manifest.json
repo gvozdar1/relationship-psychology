@@ -1,0 +1,98 @@
+{
+  "schema": "relationship-psychology.chat-export.coverage.v1",
+  "repository": "gvozdar1/relationship-psychology",
+  "export_date": "2026-09-15",
+  "chat": "current project chat",
+  "purpose": "Preserve the user-visible current chat in GitHub and map all earlier project-relevant material already extracted from the same large chat.",
+  "evidence_rule": "This archive does not elevate summaries or reconstructions to primary evidence. 09_COMBINED_MASTER.md remains canonical by project rules.",
+  "excluded_from_export": [
+    "system messages",
+    "developer messages",
+    "hidden chain-of-thought",
+    "internal tool calls and tool arguments",
+    "non-user-visible runtime metadata"
+  ],
+  "exact_transcript": {
+    "path": "archive/chat_exports/2026/09/15/current-chat/user-visible-transcript.json",
+    "status": "exact for the user-visible turns currently exposed to this runtime through the cutoff message",
+    "cutoff_user_message": "@AI Psychiatry @GitHub — request to export the whole chat to GitHub"
+  },
+  "pre_window_material_map": [
+    {
+      "id": "SRC-0020",
+      "path": "chronology/2026/04/27/derived/src-0020-apr27-symbolic-contact-and-rival-contrast.md",
+      "scope": "27.04.2026 symbolic contact and male-contour context"
+    },
+    {
+      "id": "SRC-0009",
+      "path": "chronology/2026/05/07--05/29/derived/src-0009-may07-may29-relationship-project.md",
+      "scope": "07.05–29.05.2026, boundaries, initiative, Evgeny, direct 29.05 conversation"
+    },
+    {
+      "id": "SRC-0013",
+      "path": "chronology/2026/06/21--06/23/derived/src-0013-jun21-jun23-minsk-departure.md",
+      "scope": "21–23.06.2026 Minsk/departure block"
+    },
+    {
+      "id": "SRC-0011",
+      "path": "chronology/2026/06/27--08/05/derived/src-0011-threads-and-aug02-corrections.md",
+      "scope": "Threads 27.06 and 02.08 initiative correction"
+    },
+    {
+      "id": "SRC-0018",
+      "path": "chronology/2026/07/06--07/08/derived/src-0018-jul06-jul08-density-tiktok-visibility.md",
+      "scope": "06–08.07.2026 density, AI/Viggle, TikTok and symbolic material"
+    },
+    {
+      "id": "SRC-0012",
+      "path": "chronology/2026/05/04--07/16/derived/src-0012-social-resource-and-jul16.md",
+      "scope": "04.05 and 16.07.2026 resource corrections and Jul16 conversation"
+    },
+    {
+      "id": "SRC-0010",
+      "path": "chronology/2026/07/26--08/06/derived/src-0010-jul26-aug06-dynamics.md",
+      "scope": "26.07–06.08.2026 dynamics and 06.08 return"
+    },
+    {
+      "id": "SRC-0014",
+      "path": "chronology/2025/12/undated-day/derived/src-0014-evidence-correction-and-december-gift.md",
+      "scope": "December 2025 gift/tablet/embers block and historical constraints"
+    },
+    {
+      "id": "SRC-0015",
+      "path": "chronology/2026/09/10--09/12/derived/src-0015-sep10-sep12-significance-balance.md",
+      "scope": "10–12.09.2026 significance and warmth-balancing block"
+    },
+    {
+      "id": "SRC-0016",
+      "path": "chronology/2026/09/12/analysis/src-0016-warmth-without-partnership-analysis.md",
+      "scope": "secondary analysis: warmth without partnership"
+    },
+    {
+      "id": "SRC-0017",
+      "path": "project/context/2026/09/15/src-0017-kaya-siel-shared-symbolic-layer.md",
+      "scope": "Kaya/Siel shared symbolic layer"
+    },
+    {
+      "id": "SRC-0019",
+      "path": "chronology/2026/09/12/primary/src-0019-anapa-vova-trip.md",
+      "scope": "Anapa/Vova/Luna primary card"
+    },
+    {
+      "id": "SRC-0021",
+      "path": "project/context/2026/09/15/src-0021-session-kriskislis-victory-condition.md",
+      "scope": "Kriskislis session card"
+    },
+    {
+      "id": "SRC-0022",
+      "path": "project/context/2026/09/15/src-0022-kaya-proactive-contact-pattern.md",
+      "scope": "Kris–Kaya proactive digital-contact pattern"
+    }
+  ],
+  "existing_audits": [
+    "archive/audits/2026/09/15/current-chat-transfer/AUDIT.md",
+    "project/audits/2026/09/15/current-chat-full-completion-audit.md",
+    "project/audits/2026/09/15/repository-date-order-and-duplicate-audit.md"
+  ],
+  "known_limit": "Earlier turns that are no longer exposed as raw user-visible transcript text after context compression cannot be recreated verbatim from summaries. They are mapped above to existing source documents and remain explicitly classified by their original evidence level."
+}
