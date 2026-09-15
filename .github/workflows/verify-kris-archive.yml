@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: python3 archive/kris-project-2026-08-23/tools/verify_archive.py
+      - run: python3 archive/snapshots/2026/08/23/kris-project/tools/verify_archive.py
