@@ -1,8 +1,8 @@
 # Blocked raw files — 2026-09-15
 
-Этот файл фиксирует только физически не закрытые части миграции. Он не означает, что соответствующие события/данные отсутствуют в аналитической базе.
+Этот файл фиксирует **только физически не закрытые части миграции после полного evidence-audit**. Документы, `messages12.html` и generated ZIP больше не являются блокерами.
 
-## 1. Старые MP4, raw bytes недоступны Files API
+## 1. Старые MP4, raw bytes недоступны Files surface
 
 Нужна повторная загрузка/доступный raw source для:
 
@@ -26,32 +26,48 @@
 | 16 | `1775177812582.mp4` | 5187035 |
 | 17 | `1775177812610.mp4` | 2593480 |
 
-Проверка первых пяти через materialize дала: `The requested Library file does not have a downloadable backing file yet.`
+Проверка первых пяти через materialize дала одинаковое:
+`The requested Library file does not have a downloadable backing file yet.`
 
-Дополнительно `sources/video/README.md` ранее регистрировал `1000029050.mp4`; его полный бинарник также не подтверждён.
+Независимая попытка перенести representative `video (2).mp4` через Library-copy завершилась `source_file_not_found / exact exported file unavailable or expired`.
 
-## 2. Скриншоты
+Это валидирует hard gate для старого upload-класса: raw backing bytes отсутствуют в доступном источнике.
 
-В `sources/screenshots/original_manifest.csv` зарегистрирован набор из 161 канонического screenshot original.
+## 2. Historical `1000029050.mp4`
 
-В GitHub физически подтверждены manifest, документация и часть производных/оптимизированных данных. Полный набор exact original image bytes не подтверждён.
+Ранее зарегистрировано:
+- размер: **2752754 bytes**;
+- SHA-256: `7257e6c3ab58295160bb41cb29ffc18e7f8e5546c4d352ac20ba9ffaaade7bf2`.
+
+В текущей Files surface raw binary отсутствует и в GitHub физически не подтверждён.
+
+## 3. Скриншоты
+
+В `sources/screenshots/original_manifest.csv` зарегистрированы **161** канонических screenshot originals.
+
+В GitHub физически подтверждены:
+- manifest;
+- документация;
+- часть производных/оптимизированных данных.
+
+Полный набор exact raw original image bytes не доступен текущей Files surface. Manifest/preview/bundle metadata не заменяют original bytes.
 
 Для закрытия hard gate нужен исходный архив этих 161 изображений либо повторно доступные raw originals.
 
-## 3. Project-backed exact-byte snapshot
+## Решённые пункты
+### `messages12.html`
+Закрыт через `sources/messages12/exact-v2/`: пять проверенных бинарных частей XZ позволяют lossless восстановить исходный HTML с SHA-256 `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`.
 
-Во время аудита удалось локально materialize 17 Project-backed файлов. Но заявленная версия полного tar.xz snapshot не была фактически записана в GitHub: по пути `sources/chatgpt/current_chat_materializable_files_2026-09-15.tar.xz` хранится blob размером 8138 bytes, а не заявленные ранее 98456 bytes.
+### `26_TIMELINE_MARCH_APRIL_2026.zip`
+Закрыт byte-exact. GitHub tree подтверждает путь `sources/chatgpt/26_TIMELINE_MARCH_APRIL_2026.zip`, размер **4530 bytes**, Git blob `e7d709ffe876eee831c8d5cb81a479015cb4073f`.
 
-Поэтому exact-byte snapshot нужно повторно записать при появлении рабочего binary-upload пути.
-
-Особенно важен `messages12.html`:
-- локально проверенный размер: 630716 bytes;
-- SHA-256: `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`;
-- legacy multipart в GitHub неполон, отсутствует `part03`.
-
-## 4. Generated ZIP
-
-`26_TIMELINE_MARCH_APRIL_2026.zip` существует как generated artifact текущего чата. Его MD-содержимое перенесено отдельно, но самостоятельный binary ZIP blob в GitHub не подтверждён.
+### Ошибочный tar.xz snapshot
+Усечённый 8138-byte artifact удалён из рабочей ветки. Он не нужен для завершённости, поскольку доступные Project text sources перенесены отдельно, `messages12` закрыт exact-v2, а оставшиеся raw-media блокеры перечислены выше.
 
 ## Completion condition
-Полный статус `DONE` допустим только после физической записи и проверки всех перечисленных raw bytes или после явного решения владельца проекта, что конкретный бинарник не должен входить в архив.
+Полный буквальный статус `DONE` по всем media допустим после появления и записи:
+1. 17 old-upload MP4;
+2. `1000029050.mp4`;
+3. 161 original screenshot raw files.
+
+До этого корректный статус: **all independent accessible work verified; raw-media hard gates remain**.
