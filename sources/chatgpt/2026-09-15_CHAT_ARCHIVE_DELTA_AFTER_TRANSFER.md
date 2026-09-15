@@ -33,24 +33,36 @@ Project-backed файлы удалось materialize локально; MP4 не 
 - этот delta;
 - `sources/chatgpt/26_TIMELINE_MARCH_APRIL_2026.md`;
 - `sources/chatgpt/02_Хронология_Крис.txt`;
-- `sources/chatgpt/07_Ключевые_цитаты.txt`.
+- `sources/chatgpt/07_Ключевые_цитаты.txt`;
+- `sources/chatgpt/PROJECT_FILE_INVENTORY_2026-09-15.md`;
+- `sources/project_snapshot_2026-09-15/Психология_отношений_с_Крис_variant_A.txt`;
+- `sources/project_snapshot_2026-09-15/Психология_отношений_с_Крис_variant_B.txt`;
+- `sources/project_snapshot_2026-09-15/Психология_отношений_с_Крис_variant_C.txt`;
+- `sources/project_snapshot_2026-09-15/Ветка_Ветка_Ветка_Ветка_Флирт_и_доверие.txt`;
+- `sources/project_snapshot_2026-09-15/Гороскоп_для_Скорпиона.part01.txt`;
+- `sources/project_snapshot_2026-09-15/Гороскоп_для_Скорпиона.part02.txt`;
+- `sources/project_snapshot_2026-09-15/Гороскоп_для_Скорпиона.RECONSTRUCT.md`.
 
 ## `messages12.html`
 Legacy `sources/messages12/b64/` неполон: отсутствует `part03`.
 
-Исходный `messages12.html` был локально materialized:
+Исходный `messages12.html` был materialized/прочитан в рабочей среде:
 - 630716 bytes;
+- 27380 строк;
 - SHA-256 `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`.
+
+GitHub connector в текущем сеансе не принимает local file/file_ref как upload. Попытки использовать container/Python bridge для безопасной передачи raw bytes завершались инфраструктурной ошибкой. Поэтому exact-byte GitHub copy не объявляется завершённой.
 
 ## Вторая проверка exact-byte bundle
 Первичный аудит ошибочно утверждал, что полный snapshot размером 98456 bytes уже записан в
 `sources/chatgpt/current_chat_materializable_files_2026-09-15.tar.xz`.
 
-Повторная проверка GitHub показала, что фактически хранящийся файл по этому пути:
+Повторная проверка GitHub показала, что фактически записанный blob имел:
 - размер **8138 bytes**;
 - Git blob SHA `b09281144681b90372fa3bbf91ca89180baf2ba3`.
 
-Коммит, названный как добавление exact-byte bundle, изменил реестр, но не заменил binary blob. Поэтому прежние утверждения о полном exact-byte переносе Project snapshot и `messages12.html` отменены как неподтверждённые.
+Этот артефакт был признан усечённым и удалён из рабочей ветки коммитом:
+`881ee0ab064227da690d60c6c28bbe89075b5bf3`.
 
 ## Исправленные документы
 - `MIGRATION_AUDIT_2026-09-15.md`;
@@ -65,10 +77,11 @@ Legacy `sources/messages12/b64/` неполон: отсутствует `part03`
 - доступный текстовый архив текущего чата;
 - post-transfer delta;
 - отдельный MD таймлайна;
-- хронология и ключевые цитаты.
+- хронология и ключевые цитаты;
+- полный current-surface inventory;
+- несколько ранее отсутствовавших/distinct Project text sources, включая три одноимённых варианта и длинный регламент, ошибочно названный `Гороскоп для Скорпиона.txt`.
 
-### NOT CONFIRMED IN GITHUB
-- полный exact-byte snapshot 17 Project-backed файлов;
+### BLOCKED_BY_TOOL_TRANSFER_GATE
 - exact bytes `messages12.html`;
 - binary `26_TIMELINE_MARCH_APRIL_2026.zip`.
 
@@ -76,4 +89,4 @@ Legacy `sources/messages12/b64/` неполон: отсутствует `part03`
 - 17 старых MP4: Files API не отдаёт raw backing bytes;
 - exact originals 161 screenshots: raw images недоступны на текущей surface.
 
-Полный `DONE` нельзя объявлять до появления физически доступных исходных бинарников и их записи/проверки в GitHub.
+Полный `DONE` нельзя объявлять до появления физически доступных исходных бинарников и работающего file-to-GitHub binary bridge либо повторной загрузки этих исходников.
