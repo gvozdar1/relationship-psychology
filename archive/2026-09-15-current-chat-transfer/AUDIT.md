@@ -2,37 +2,37 @@
 
 **Дата проверки:** 15.09.2026
 
-**Репозиторий:** \`gvozdar1/relationship-psychology\`
+**Репозиторий:** `gvozdar1/relationship-psychology`
 
 **Цель:** не выдавать более старые копии за новые данные, не терять первичку и не переносить не относящиеся к проекту сообщения.
 
 ## 1. Пакет, переданный в рабочую среду
 
-Поступили 11 именованных файлов. Сравнение выполнено по Git blob SHA-1: хэш вычислен из локального файла командой \`git hash-object\` и сопоставлен с SHA объекта в целевом репозитории.
+Поступили 11 именованных файлов. Сравнение выполнено по Git blob SHA-1: хэш вычислен из локального файла командой `git hash-object` и сопоставлен с SHA объекта в целевом репозитории.
 
 | Локальный файл | Уже существующий путь в репозитории | Git blob SHA-1 | Итог |
 |---|---|---|---|
-| \`01-09_COMBINED_MASTER.md\` | \`archive/2026-08-11-user-provided-bundle/09_COMBINED_MASTER.md\` | \`97d8ec10422ce674773f5fc0c56b781ca50d7098\` | точная копия |
-| \`02-00_INDEX.md\` | \`archive/2026-08-11-user-provided-bundle/00_INDEX.md\` | \`2ca6bd000d13824297a9d66f2ea6169f7d98e6c7\` | точная копия |
-| \`03-01_PROJECT_CORE.md\` | \`archive/2026-08-11-user-provided-bundle/01_PROJECT_CORE.md\` | \`3f0ddda9179d57cac24e1c3988a392b7094dbe5e\` | точная копия |
-| \`04-02_TIMELINE.md\` | \`archive/2026-08-11-user-provided-bundle/02_TIMELINE.md\` | \`a2a004d0c983a33dbe3212c3db8f0e9cc0e322d8\` | точная копия |
-| \`05-03_HYPOTHESES_AND_CONFIDENCE.md\` | \`archive/2026-08-11-user-provided-bundle/03_HYPOTHESES_AND_CONFIDENCE.md\` | \`eb5f0d0656ae87d484a59fed1df80b7bb0cbc29b\` | точная копия |
-| \`06-05_COMMUNICATION_PROTOCOL.md\` | \`archive/2026-08-11-user-provided-bundle/05_COMMUNICATION_PROTOCOL.md\` | \`02f3b7a916222ab5b75fe8838c5245676e829aa4\` | точная копия |
-| \`07-11_STRONGEST_FACTS_AGAINST_HIDDEN_WARM_UNION_WITH_EVGENY.md\` | \`archive/2026-08-11-user-provided-bundle/11_STRONGEST_FACTS_AGAINST_HIDDEN_WARM_UNION_WITH_EVGENY.md\` | \`0ad3d09d586c057f1bb3ee65240167ccedcb6dce\` | точная копия |
-| \`08-10_STRONGEST_FACTS_FOR_KRIS_TO_GVOZDAR.md\` | \`archive/2026-08-11-user-provided-bundle/10_STRONGEST_FACTS_FOR_KRIS_TO_GVOZDAR.md\` | \`f6b11c6d3ba117e69c8605df7e22450da8c7bff7\` | точная копия |
-| \`09-12_UPDATED_WORKING_HYPOTHESIS_CURRENT.md\` | \`archive/2026-08-11-user-provided-bundle/12_UPDATED_WORKING_HYPOTHESIS_CURRENT.md\` | \`bb70d6f27bd41fb8dc7dad2c04a0535c1ed3a49d\` | точная копия |
-| \`10-13_HYPOTHESIS_UPDATE_LOG_MAY.md\` | \`archive/2026-08-11-user-provided-bundle/13_HYPOTHESIS_UPDATE_LOG_MAY.md\` | \`d1129adc76337f35653be2af805579d6c21f35ee\` | точная копия |
-| \`11-messages12.html\` | \`messages12.html\` | \`48d4a272b26f06343501914f4c93e62254f3f5ff\` | точная копия |
+| `01-09_COMBINED_MASTER.md` | `archive/2026-08-11-user-provided-bundle/09_COMBINED_MASTER.md` | `97d8ec10422ce674773f5fc0c56b781ca50d7098` | точная копия |
+| `02-00_INDEX.md` | `archive/2026-08-11-user-provided-bundle/00_INDEX.md` | `2ca6bd000d13824297a9d66f2ea6169f7d98e6c7` | точная копия |
+| `03-01_PROJECT_CORE.md` | `archive/2026-08-11-user-provided-bundle/01_PROJECT_CORE.md` | `3f0ddda9179d57cac24e1c3988a392b7094dbe5e` | точная копия |
+| `04-02_TIMELINE.md` | `archive/2026-08-11-user-provided-bundle/02_TIMELINE.md` | `a2a004d0c983a33dbe3212c3db8f0e9cc0e322d8` | точная копия |
+| `05-03_HYPOTHESES_AND_CONFIDENCE.md` | `archive/2026-08-11-user-provided-bundle/03_HYPOTHESES_AND_CONFIDENCE.md` | `eb5f0d0656ae87d484a59fed1df80b7bb0cbc29b` | точная копия |
+| `06-05_COMMUNICATION_PROTOCOL.md` | `archive/2026-08-11-user-provided-bundle/05_COMMUNICATION_PROTOCOL.md` | `02f3b7a916222ab5b75fe8838c5245676e829aa4` | точная копия |
+| `07-11_STRONGEST_FACTS_AGAINST_HIDDEN_WARM_UNION_WITH_EVGENY.md` | `archive/2026-08-11-user-provided-bundle/11_STRONGEST_FACTS_AGAINST_HIDDEN_WARM_UNION_WITH_EVGENY.md` | `0ad3d09d586c057f1bb3ee65240167ccedcb6dce` | точная копия |
+| `08-10_STRONGEST_FACTS_FOR_KRIS_TO_GVOZDAR.md` | `archive/2026-08-11-user-provided-bundle/10_STRONGEST_FACTS_FOR_KRIS_TO_GVOZDAR.md` | `f6b11c6d3ba117e69c8605df7e22450da8c7bff7` | точная копия |
+| `09-12_UPDATED_WORKING_HYPOTHESIS_CURRENT.md` | `archive/2026-08-11-user-provided-bundle/12_UPDATED_WORKING_HYPOTHESIS_CURRENT.md` | `bb70d6f27bd41fb8dc7dad2c04a0535c1ed3a49d` | точная копия |
+| `10-13_HYPOTHESIS_UPDATE_LOG_MAY.md` | `archive/2026-08-11-user-provided-bundle/13_HYPOTHESIS_UPDATE_LOG_MAY.md` | `d1129adc76337f35653be2af805579d6c21f35ee` | точная копия |
+| `11-messages12.html` | `messages12.html` | `48d4a272b26f06343501914f4c93e62254f3f5ff` | точная копия |
 
 ## 2. Служебные вложения
 
-- Два скрытых пустых файла не являются источниками: оба имеют blob SHA \`e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\`.
-- Один скрытый файл размером 5 195 байт является точным дублем \`12_UPDATED_WORKING_HYPOTHESIS_CURRENT.md\` с SHA \`bb70d6f27bd41fb8dc7dad2c04a0535c1ed3a49d\`.
+- Два скрытых пустых файла не являются источниками: оба имеют blob SHA `e69de29bb2d1d6434b8b29ae775ad8c2e48c5391`.
+- Один скрытый файл размером 5 195 байт является точным дублем `12_UPDATED_WORKING_HYPOTHESIS_CURRENT.md` с SHA `bb70d6f27bd41fb8dc7dad2c04a0535c1ed3a49d`.
 - Поэтому служебные дубли в репозиторий не добавляются.
 
 ## 3. Новый проектный материал этого чата
 
-В доступной части текущего диалога был один ранее незафиксированный тематический текст: гороскоп/таро для Скорпиона и Водолея на 11 августа. Он перенесён отдельно как \`CTX-0001\` в \`sources/chat/2026-09-15-current-chat-tarot-text-11-august.md\`.
+В доступной части текущего диалога был один ранее незафиксированный тематический текст: гороскоп/таро для Скорпиона и Водолея на 11 августа. Он перенесён отдельно как `CTX-0001` в `sources/chat/2026-09-15-current-chat-tarot-text-11-august.md`.
 
 **Граница доказательности:** текст хранится дословно, но не используется как источник фактов о Крис, её действиях, чувствах или будущем отношений.
 
@@ -46,9 +46,23 @@
 
 ## 5. Контрольное замечание о существующей мета-структуре
 
-При сверке обнаружен уже существовавший дефект реестра: идентификатор \`SRC-0009\` одновременно используется для разных материалов:
+При сверке обнаружен уже существовавший дефект реестра: идентификатор `SRC-0009` одновременно использовался для разных материалов:
 
-- строка \`SRC-0009\` в \`08_SOURCE_REGISTRY.md\` описывает блок 07–29.05.2026;
-- файл \`sources/2026-09-12-anapa-vova-trip.md\` сам назван «SRC-0009» и описывает 12.09.2026.
+- строка `SRC-0009` в `08_SOURCE_REGISTRY.md` описывала блок 07–29.05.2026;
+- файл `sources/2026-09-12-anapa-vova-trip.md` сам называл себя `SRC-0009` и описывал 12.09.2026.
 
-Кроме того, часть уже существующих рабочих файлов \`sources/chat/\` не перечислена в активной таблице реестра. Это **метаданные, требующие отдельной сверки**, а не основание менять даты, факты или атрибуцию молча. В этом переносе содержимое старых источников не переименовывалось и не удалялось.
+Кроме того, часть уже существующих рабочих файлов `sources/chat/` не была перечислена в активной таблице реестра. Это метаданные, а не основание менять даты, факты или атрибуцию молча.
+
+## 6. Статус после ремонта
+
+**ИСПРАВЛЕНО 15.09.2026 через `AUD-0003`:**
+
+- канонический `SRC-0009` оставлен за майским источником 07–29.05;
+- анапский файл переназначен на `SRC-0019`, связанный update-файл исправлен;
+- двойная маркировка `SRC-0018` устранена: расширенная июльская сводка помечена как companion/summary, а не второй независимый источник;
+- существующие, но не зарегистрированные карточки 27.04 и «Сессия Крискислис» зарегистрированы как `SRC-0020` и `SRC-0021`;
+- в `07_UPDATE_PROTOCOL.md` добавлено правило глобальной уникальности `SRC-*`.
+
+Подробный журнал ремонта: `archive/2026-09-15-source-registry-repair/AUDIT_AND_REPAIR.md`.
+
+**ОГРАНИЧЕНИЕ НЕ СНЯТО:** абсолютная полнота исходного чата по-прежнему не подтверждена без полного машиночитаемого экспорта и недостающих оригинальных вложений.
