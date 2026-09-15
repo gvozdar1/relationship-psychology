@@ -7,7 +7,7 @@
 | SRC-0003 | 05–06.08.2026 | screenshots + video-transcript | Крис, Гвоздарь | 13 скриншотов, 20 MP4 (17 уникальных) и текстовая расшифровка кружков | `chronology/2026/08/05--06/primary/src-0003-chat-screens-video-transcript.md`; оригиналы — в приложениях чата | verified |
 | SRC-0004 | 06.08.2026 | Instagram screenshots | Крис, Гвоздарь | 4 скриншота: Крис сама проверяет, не отписался ли Гвоздарь; предшествующий контекст лёгкого контакта | `chronology/2026/08/05--06/primary/src-0004-instagram-addendum.md`; оригиналы — в приложениях чата | verified |
 | SRC-0005 | 17.06–15.07.2026 | project-continuity-reconstruction | Крис, Гвоздарь, Кая | Восстановление календарного разрыва по ранее закреплённому контексту и пользовательским пересказам | `chronology/2026/06/17--07/15/reconstructions/src-0005-project-continuity-reconstruction.md` | incomplete; непервичный, требует исходников |
-| SRC-0006 | 20.08–11.09.2026 | chat-session source family | пользователь + ChatGPT | Снимки художественного слоя «Семейный пантеон»; не являются доказательствами реальных событий в отношениях | `archive/non-project/undated/family-pantheon/chat-sessions/` | archived; excluded from active evidence base |
+| SRC-0006 | 20.08–11.09.2026 | chat-session source family | пользователь + ChatGPT | Снимки художественного слоя «Семейный пантеон»; не являются доказательствами реальных событий в отношениях | датированы и разложены в `archive/non-project/2026/08/.../family-pantheon/chat-sessions/` и `archive/non-project/2026/09/.../family-pantheon/chat-sessions/` | archived; excluded from active evidence base |
 | SRC-0007 | 27.06.2026 | screenshots + video | Крис, Евгений, Гвоздарь | Прямой корпус конфликта Крис с Евгением и раскрытия эпизода Гвоздарю | `archive/snapshots/2026/08/23/kris-project/primary/evidence/2026-06-27/` | 16 изображений exact; видео lossless-reconstructable |
 | SRC-0008 | получен 12.09.2026; дата фрагмента не видна | screenshot | Крис, Гвоздарь | Бытовой Telegram-фрагмент: Крис обращается к Стасу «дорогой»; видимое время сообщений 21:58–22:01 | `chronology/undated/primary/src-0008-telegram-dear-address.md`; оригинал `1000032143.jpg` — в приложении текущего чата | verified; дата самого фрагмента не установлена |
 | SRC-0009 | 07.05–29.05.2026; перенесён 15.09.2026 | chat-session + quoted-dialogue + user-report | Крис, Гвоздарь, Евгений | 07→08.05, 09.05, 12.05, Евгений/приезд, стратегия паузы и прямой разговор 29.05 о близости/невлюблённости/страхе отношений | `chronology/2026/05/07--05/29/derived/src-0009-may07-may29-relationship-project.md` | reviewed; прямые цитаты сильнее user-report |
@@ -15,15 +15,15 @@
 | SRC-0011 | 27.06, 02–05.08.2026; перенесён 15.09.2026 | chat-session + screenshots + analytical-correction | Крис, Гвоздарь, Евгений | Паттерн Threads 27.06, «лобная доля» как гипотеза, коррекция инициативы 02.08, правило по таро | `chronology/2026/06/27--08/05/derived/src-0011-threads-and-aug02-corrections.md` | reviewed |
 | SRC-0012 | 04.05 и 16.07.2026; перенесён 15.09.2026 | screenshots + chat-session + user-report | Крис, Гвоздарь, Кая, Лик; контекст Евгения/Данила | Коррекции по «требованию взамен» и социальной усталости; user-report о ресурсных провалах; 16.07 — инициатива Крис, рабочий быт, Кая, кодовое слово, профессиональное «озарение» | `chronology/2026/05/04--07/16/derived/src-0012-social-resource-and-jul16.md` | reviewed; причинная гипотеза по ресурсным провалам остаётся user-report |
 | SRC-0013 | 21–23.06.2026; перенесён 15.09.2026 | screenshots + chat-session + user-report | Крис, Гвоздарь; контекст родителей, Евгения, Юры, Ильи, Никиты | Минский блок: глубина/родители/слухи, утренний быт, проводы, пост-отъездной контакт, «я ж с тобой хотела», «Та куда я денусь», Minecraft | `chronology/2026/06/21--06/23/derived/src-0013-jun21-jun23-minsk-departure.md` | reviewed; часть событий требует сверки полным экспортом |
-| SRC-0014 | декабрь 2025 + исторический контекст 2022–2026; перенесён 15.09.2026 | chat-session + quoted-dialogue + user-report + analytical-correction | Крис, Гвоздарь; мета-слой ChatGPT | Коррекция «3 года = отказ», исторические ограничения, декабрьский диалог «таблеточка», «Поворошил мои угли?», «самый дорогой подарок... именно от парней» | `chronology/undated/derived/src-0014-evidence-correction-and-december-gift.md` | reviewed; точная дата pasted-фрагмента не подтверждена |
+| SRC-0014 | декабрь 2025 + исторический контекст 2022–2026; перенесён 15.09.2026 | chat-session + quoted-dialogue + user-report + analytical-correction | Крис, Гвоздарь; мета-слой ChatGPT | Коррекция «3 года = отказ», исторические ограничения, декабрьский диалог «таблеточка», «Поворошил мои угли?», «самый дорогой подарок... именно от парней» | `chronology/2025/12/undated-day/derived/src-0014-evidence-correction-and-december-gift.md` | reviewed; месяц подтверждён, точный день pasted-фрагмента не установлен |
 | SRC-0015 | 10–12.09.2026; перенесён 15.09.2026 | screenshots + chat-session + video-transcript + analytical-correction | Крис, Гвоздарь; контекст Маши, Вовы, Краснодара, Луны | «Почему ты со мной?», зеркальный ответ «мы очень близки / могу все доверить / ты мне важен очень», сознательное «балансировать» и «томлю твои угольки» | `chronology/2026/09/10--09/12/derived/src-0015-sep10-sep12-significance-balance.md` | reviewed; прямые цитаты и скриншоты приоритетны |
 | SRC-0016 | 12.09.2026; перенесён 15.09.2026 | chat-session + user-observation + AI-analysis | Гвоздарь, ChatGPT; предмет анализа Крис–Гвоздарь | Вторичный разбор «мы не пара» при сохранении тепла/значимости; гипотеза регулирования дистанции и версия «крючка» | `chronology/2026/09/12/analysis/src-0016-warmth-without-partnership-analysis.md` | reviewed; вторичный аналитический источник |
 | SRC-0017 | 15.09.2026 | chat-session + quoted-dialogue + image-context + AI-generated-text | Крис, Гвоздарь, Кая, Лик | Образы Каи/Лика, «а ты сама то не влюбилась?», персонализация, «Сад вторых способов», общий символический слой | `project/context/2026/09/15/src-0017-kaya-siel-shared-symbolic-layer.md` | reviewed; прямые слова Крис отделены от AI-generated текста |
 | SRC-0018 | 06–08.07.2026; перенесён 15.09.2026 | chat-session + screenshots + user-report + image-context + analytical-correction | Крис, Гвоздарь, Евгений, Виктория Кривонос195 | AI/Viggle, «плюха», дневная плотность 07–08.07, TikTok-видимость, Минск-фотоотчёт, газета, лисёнок | `chronology/2026/07/06--07/08/derived/src-0018-jul06-jul08-density-tiktok-visibility.md` | reviewed |
 | SRC-0019 | 12.09.2026; переназначен 15.09.2026 | screenshots + user-transcript + source-card | Крис, Гвоздарь, Вова; Луна | Анапа/гостиница/море: Крис раскрывает офлайн-контекст, организацию поездки Вовой, отсутствие домогательств/претензий и бытово-материальную поддержку | `chronology/2026/09/12/primary/src-0019-anapa-vova-trip.md` | reviewed; ID исправлен AUD-0003 |
 | SRC-0020 | 27.04.2026; зарегистрирован 15.09.2026 | chat-session + screenshots + user-report + analytical-correction | Крис, Гвоздарь; контекст Евгения | «улитку не кантовать», Мармеладный Волк, Бездна, рабочая забота, рилсы/мужские контрасты и гипотеза о третьем приглашении | `chronology/2026/04/27/derived/src-0020-apr27-symbolic-contact-and-rival-contrast.md` | reviewed |
-| SRC-0021 | 15.09.2026; содержит недатированный pasted-фрагмент Крис | chat-session + user-report + current-analysis-thread | Крис, Гвоздарь; мета-слой ChatGPT | «Сессия Крискислис»: «Гвоздик», «таблеточка», позиция Стаса «не ухожу/победа»; не полный Telegram-экспорт | `chronology/undated/derived/src-0021-session-kriskislis-victory-condition.md` | reviewed; не удваивать подтверждение дублированных цитат |
-| SRC-0022 | дата скриншотов не установлена; перенесён 15.09.2026 | screenshots + chat-session + AI-generated-text | Крис, Кая | Крис просит Каю писать самой, «внезапно неоткуда пять раз в неделю», определяет доступность через отключение интернета; бытовой обмен про французские розы | `chronology/undated/derived/src-0022-kaya-proactive-contact-pattern.md` | reviewed; цифровую частоту не переносить механически на Гвоздаря |
+| SRC-0021 | перенесён 15.09.2026; Telegram-фрагмент внутри не датирован | chat-session + user-report + current-analysis-thread | Крис, Гвоздарь; мета-слой ChatGPT | «Сессия Крискислис»: «Гвоздик», «таблеточка», позиция Стаса «не ухожу/победа»; не полный Telegram-экспорт | `project/context/2026/09/15/src-0021-session-kriskislis-victory-condition.md` | reviewed; дата карточки известна, событие внутри не датировать без первички; не удваивать совпадающие цитаты |
+| SRC-0022 | дата скриншотов не установлена; перенесён 15.09.2026 | screenshots + chat-session + AI-generated-text | Крис, Кая | Крис просит Каю писать самой, «внезапно неоткуда пять раз в неделю», определяет доступность через отключение интернета; бытовой обмен про французские розы | `project/context/2026/09/15/src-0022-kaya-proactive-contact-pattern.md` | reviewed; дата карточки известна, дата скриншотов неизвестна; цифровую частоту не переносить механически на Гвоздаря |
 
 ## Контекстные материалы вне доказательной базы
 
@@ -38,7 +38,8 @@
 | AUD-0001 | 08.08.2026 | evidence-audit | Переклассификация утверждений после проверки `SRC-0001`–`SRC-0003` | `project/audits/2026/08/08/evidence-audit.md` | active |
 | AUD-0002 | 15.09.2026 | transfer-audit | Сверка доступных вложений текущего чата с Git-объектами и граница полноты | `archive/audits/2026/09/15/current-chat-transfer/AUDIT.md` | active |
 | AUD-0003 | 15.09.2026 | metadata-integrity-audit | Исправление коллизий ID, регистрация orphaned chat sources, глобальная уникальность ID | `archive/audits/2026/09/15/source-registry-repair/AUDIT_AND_REPAIR.md` | active |
-| AUD-0004 | 15.09.2026 | completion-audit | Матрица покрытия текущего большого чата, поиск пропусков и финальные consistency gates | `project/audits/2026/09/15/current-chat-full-completion-audit.md` | active |
+| AUD-0004 | 15.09.2026 | completion-audit | Матрица покрытия текущего большого чата, поиск пропусков и consistency gates | `project/audits/2026/09/15/current-chat-full-completion-audit.md` | active |
+| AUD-0005 | 15.09.2026 | repository-structure-audit | Финальная сортировка по датам, исправление ссылок, аудит дублей/повторов и проверка остаточного `undated` | `project/audits/2026/09/15/repository-date-order-and-duplicate-audit.md` | active |
 
 ## SRC-0009: правило использования
 
@@ -78,7 +79,7 @@
 
 - Не использовать календарную длительность как самостоятельное доказательство отказа; сначала выделять реальные окна возможности.
 - Декабрьские «таблеточка», «немножко жизни», «Поворошил мои угли?», «самый дорогой подарок... именно от парней» — локальные факты, не признание любви/статуса.
-- Точная дата декабрьского pasted-диалога не подтверждена.
+- Точная дата декабрьского pasted-диалога не подтверждена; месяц — декабрь 2025.
 - Старые формулы «она уже выбрала», «5–10%», «испугалась силы» без новой базы не использовать.
 
 ## SRC-0015: правило использования
@@ -128,7 +129,7 @@
 
 ## SRC-0021: правило использования
 
-- Это аналитический чат, не полный Telegram-экспорт; недатированный pasted-фрагмент не помещать в точную хронологию без независимой датировки.
+- Это карточка текущего аналитического чата, а не полный Telegram-экспорт; недатированный pasted-фрагмент не помещать в точную событийную хронологию без независимой датировки.
 - «Гвоздик»/«таблеточка» — локальные маркеры тёплого канала, не партнёрский выбор.
 - «не ухожу / победа / она моя» — позиция Стаса, не воля Крис и не прогноз.
 - Дубли с `SRC-0014` не считать независимым повторным подтверждением.
@@ -161,6 +162,7 @@
 - evidence-audit
 - metadata-integrity-audit
 - completion-audit
+- repository-structure-audit
 
 ## Статус проверки
 
