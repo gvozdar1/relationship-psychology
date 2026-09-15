@@ -57,7 +57,8 @@
 - `project/context/2026/09/15/kaya-siel-shared-symbolic-layer-update.md` — связка `Крис–Кая ↔ Гвоздарь–Лик` как символический/творческий слой.
 - `chronology/2026/07/06--07/08/derived/density-tiktok-visibility-canonical-update.md` — 06–08.07, плотность контакта, TikTok-контекст, символические материалы.
 - `project/updates/2026/09/15/session-kriskislis-victory-condition-current-update.md` — интеграция «Сессии Крискислис» как аналитического слоя текущей сессии.
-- `project/audits/2026/09/15/current-chat-full-completion-audit.md` — аудит покрытия текущего большого чата и consistency gates; для literal line-by-line claims использовать более поздний аудит.
+- `project/audits/2026/09/15/current-chat-full-completion-audit.md` — `AUD-0004`, широкий transfer-audit текущего большого чата; для literal line-by-line claims заменён `AUD-0006`.
+- `project/audits/2026/09/15/current-chat-line-by-line-and-archive-audit.md` — `AUD-0006`, действующий посообщенческий аудит текущего чата, коррекции «маргарина», проверка вложений и раздельных архивов.
 - `project/audits/2026/09/15/repository-date-order-and-duplicate-audit.md` — `AUD-0005`, финальная проверка датировки, дублей, ссылок и остаточного `undated`.
 - `project/context/2026/09/15/kaya-proactive-contact-pattern-update.md` — прямой запрос Крис к Кае на инициативный неожиданный цифровой контакт и ограничения переноса этого паттерна на Гвоздаря.
 - `project/context/2026/09/15/tarot-app-readings-gap-correction-update.md` — коррекция пропуска: расклады приложения Tarot сохраняются как контекстный символический слой, но не как доказательная база отношений.
@@ -97,8 +98,9 @@
 
 - `AUD-0002` — граница физически доступного материала текущего чата.
 - `AUD-0003` — ремонт коллизий `SRC-*`.
-- `AUD-0004` — покрытие тематических блоков текущего большого чата.
+- `AUD-0004` — широкий transfer/completion-аудит; сохраняется для своей исходной области, но **не** является literal line-by-line proof.
 - `AUD-0005` — фактическая сортировка репозитория по датам, исправление ссылок и аудит дублей/повторов.
+- `AUD-0006` — действующий literal line-by-line аудит текущего чата; имеет приоритет над `AUD-0004` для утверждений о посообщенческой полноте, «маргарине» и проверке attachment/archive-surface.
 - `project/audits/2026/09/15/ctx-0002-gap-fix.md` — минимальный audit trail по исправлению пропуска `CTX-0002`.
 
 `AUD-0005` не меняет выводы `09_COMBINED_MASTER.md`: это структурный ремонт, а не новая психологическая первичка.
