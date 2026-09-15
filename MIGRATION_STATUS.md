@@ -12,28 +12,31 @@
 - `sources/chatgpt/26_TIMELINE_MARCH_APRIL_2026.md`;
 - `sources/chatgpt/02_Хронология_Крис.txt`;
 - `sources/chatgpt/07_Ключевые_цитаты.txt`;
+- `sources/chatgpt/PROJECT_FILE_INVENTORY_2026-09-15.md`;
+- три разные Project-source версии `Психология отношений с Крис.txt` сохранены под уникальными именами в `sources/project_snapshot_2026-09-15/`;
+- дополнительная ветка `Ветка · Ветка · Ветка · Ветка · Флирт и доверие.txt` сохранена в `sources/project_snapshot_2026-09-15/`;
+- читаемое содержимое Project-source `Гороскоп для Скорпиона.txt` сохранено двумя последовательными частями + `RECONSTRUCT.md`;
 - manifest/документация по ранее зарегистрированным медиа и источникам.
 
-## Исправление по exact-byte bundle
-Ранее этот статус ошибочно утверждал, что файл
+## Исправление по ошибочному binary bundle
+Ранее был создан путь
 `sources/chatgpt/current_chat_materializable_files_2026-09-15.tar.xz`
-содержит полный snapshot размером 98456 bytes.
+и ошибочно объявлен полным 98456-byte snapshot.
 
-Фактически GitHub показывает для реально записанного blob:
-- размер: **8138 bytes**;
-- Git blob SHA: `b09281144681b90372fa3bbf91ca89180baf2ba3`.
+Фактическая проверка GitHub показала размер **8138 bytes**, то есть перенос был усечён. Неполный artifact **удалён из рабочей ветки**. Его история остаётся в Git для аудита.
 
-Поэтому полный exact-byte snapshot 17 Project-backed файлов **не подтверждён как записанный в GitHub**.
+Он больше нигде не должен использоваться как доказательство сохранности исходников.
 
 ## `messages12.html`
-Исходный файл удалось materialize локально в ходе аудита:
+Project source был успешно materialized в рабочей среде:
 - размер: **630716 bytes**;
-- SHA-256: `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`.
+- SHA-256: `d968abf216fc920ea152bced80d06eed5df10d665ba8639726f864e15b0c6bcf`;
+- читаемый источник содержит **27380 строк**.
 
 Но legacy `sources/messages12/b64/` неполон: отсутствует `part03`.
-Текущий 8138-byte tar.xz не является доказательством наличия полного HTML.
+GitHub connector принимает только текстовое поле `content` и не принимает local file/file_ref напрямую; container/Python bridge во время аудита возвращал инфраструктурную ошибку. Поэтому безопасный byte-exact upload 630716-byte HTML из materialized backing file этим сеансом не доказан.
 
-Статус exact bytes в GitHub: **NOT CONFIRMED**.
+Статус exact bytes в GitHub: **BLOCKED_BY_TOOL_TRANSFER_GATE / NOT CONFIRMED**.
 
 ## Скриншоты
 В репозитории есть:
@@ -46,21 +49,28 @@
 Статус: **BLOCKED_BY_HARD_GATE** до повторного предоставления исходных изображений/архива.
 
 ## Видео
-Текущая Files surface показывает 17 старых uploaded MP4. Попытка materialize первых пяти вернула ошибку отсутствующего downloadable backing file. Полные байты этих видео не доступны модели для записи в GitHub.
+Текущая Files surface показывает 17 старых uploaded MP4. Попытка materialize первых пяти вернула `The requested Library file does not have a downloadable backing file yet.` Полные байты этих видео не доступны модели для записи в GitHub. Остальные 12 относятся к тому же old-upload классу и не считаются перенесёнными без raw bytes.
 
 Также ранее зарегистрированный `1000029050.mp4` остаётся без подтверждённого бинарника.
 
 Статус: **BLOCKED_BY_HARD_GATE**.
 
 ## Generated ZIP
-`26_TIMELINE_MARCH_APRIL_2026.zip` существует как generated файл текущего чата. Его MD-содержимое перенесено отдельно, но отдельный binary ZIP blob в GitHub не подтверждён.
+`26_TIMELINE_MARCH_APRIL_2026.zip` существует как generated файл текущего чата. Его MD-содержимое перенесено отдельно и проверено, но connector не предоставляет безопасный прямой binary-file upload из этого backing file в GitHub.
 
-Статус: **NOT CONFIRMED IN GITHUB**.
+Статус ZIP binary: **BLOCKED_BY_TOOL_TRANSFER_GATE / NOT CONFIRMED**.
+
+## Что было сделано вместо ложного DONE
+- удалён усечённый tar.xz;
+- исправлены audit/status/registry;
+- сохранены читаемые текстовые Project-source документы, которые можно было безопасно перенести без подмены байтов;
+- создан полный inventory 35 файлов текущей surface;
+- отдельно зафиксированы все недоступные бинарники и причина блокировки.
 
 ## Полный аудит
 См. `MIGRATION_AUDIT_2026-09-15.md`.
 
 ## Итоговый статус
-**PARTIALLY VERIFIED / NOT FULLY COMPLETE**.
+**MAXIMUM REACHED WITH CURRENT TOOL ACCESS / NOT FULLY COMPLETE.**
 
-Подтверждённые текстовые артефакты перенесены. Полный физический `DONE` запрещён до появления доступных raw bytes недостающих бинарников и подтверждения exact-byte Project snapshot.
+Всё, что можно было надёжно записать в GitHub через доступные текстовые операции, перенесено или зарегистрировано. Полный физический `DONE` запрещён до появления raw bytes недостающих видео/скриншотов либо файлового upload-моста для exact `messages12.html` и ZIP.
