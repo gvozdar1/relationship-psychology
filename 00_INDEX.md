@@ -1,5 +1,13 @@
 # Проект: Психология отношений с Крис — индекс
 
+## Навигация после хронологической уборки — 15.09.2026
+
+- Канон и методика остаются в корне: `09_COMBINED_MASTER.md`, `00_INDEX.md`, `08_SOURCE_REGISTRY.md`.
+- Событийные материалы находятся в `chronology/YYYY/MM/…/`; входная карта — `chronology/README.md`.
+- Документы по дате их создания, а не по одному событию, лежат в `project/`.
+- Старые срезы и заменённые версии вынесены в `archive/`; они не удваивают действующие доказательства.
+- Если дата самого события не установлена, материал лежит в `chronology/undated/`, а не получает придуманную дату.
+
 ## Главный источник истины
 
 1. `09_COMBINED_MASTER.md` — текущий канон проекта.
@@ -11,7 +19,7 @@
 
 Предыдущие версии уставных документов перед сентябрьским обновлением сохранены без изменений в:
 
-`archive/2026-09-09-pre-september-update/`
+`archive/snapshots/2026/09/09/pre-september-update/`
 
 ---
 
@@ -32,45 +40,44 @@
 
 ### Доказательные и хронологические дополнения
 
-- `12-2026-08-08_EVIDENCE_AUDIT.md` — доказательная поправка 08.08.
-- `14-2026-08-11_FULL_TRANSFER_AUDIT.md` — аудит переноса материалов.
-- `15-2026-08-29_AUGUST_RELATIONSHIP_ARCHITECTURE_UPDATE.md` — августовская перестройка архитектуры.
-- `16-2026-09-09_SEPTEMBER_RELATIONSHIP_UPDATE.md` — события и выводы 31.08–09.09.
-- `17-2026-09-11_SIGNIFICANCE_QUERY_AND_KRASNODAR_UPDATE.md` — 10.09 и ночь 10→11.09: «Почему ты со мной?», поддержка, Вова/Краснодар, Луна.
-- `18-2026-09-12_AFFECTIONATE_ADDRESS_UPDATE.md` — `SRC-0008`, обращение «дорогой».
-- `19-2026-09-12_ANAPA_VOVA_TRANSPARENCY_UPDATE.md` — Анапа/Вова и добровольное раскрытие офлайн-контекста.
-- `19-2026-09-15_CURRENT_CHAT_CHRONOLOGY_AND_SOURCE_UPDATE.md` — перенос ранних блоков текущего чата и методологические поправки.
-- `20-2026-09-15_APR27_SYMBOLIC_CONTACT_AND_RIVAL_CONTRAST_UPDATE.md` — 27.04, символический контакт и мужские контуры.
-- `21-2026-09-15_MAY07_TO_MAY29_CURRENT_CHAT_UPDATE.md` — 07.05–29.05, границы, инициатива, разговор о близости/невлюблённости.
-- `21-2026-09-15_MINSK_OFFLINE_2026-06-17_22_RECONSTRUCTION.md` — расширенная реконструкция Минска 17–22.06.
-- `21-2026-09-15_SESSION_KRISKISLIS_VICTORY_CONDITION_UPDATE.md` — историческая версия сессии «Крискислис»; при конфликте использовать документ 27 и реестр источников.
-- `22-2026-09-15_SOCIAL_RESOURCE_AND_JUL16_AI_RELATIONSHIP_UPDATE.md` — 16.07, «соц батарейка», транзакционность, Крис–Кая / Гвоздарь–Лик.
-- `23-2026-09-15_EVIDENCE_CORRECTION_AND_DECEMBER_GIFT_UPDATE.md` — коррекция «три года = отказ», декабрьский подарок/«таблеточка».
-- `24-2026-09-15_SEP11_MIRRORED_SIGNIFICANCE_AND_BALANCE_UPDATE.md` — прямой ответ Крис «ты мне важен очень» и сознательное балансирование ласковости.
-- `25-2026-09-15_KAYA_SIEL_SHARED_SYMBOLIC_LAYER_UPDATE.md` — связка `Крис–Кая ↔ Гвоздарь–Лик` как символический/творческий слой.
-- `26-2026-09-15_JUL06_JUL08_DENSITY_TIKTOK_VISIBILITY_UPDATE.md` — 06–08.07, плотность контакта, TikTok-контекст, символические материалы.
-- `27-2026-09-15_SESSION_KRISKISLIS_VICTORY_CONDITION_UPDATE.md` — актуальная интеграция «Сессии Крискислис», источник `SRC-0021`.
-- `28-2026-09-15_CURRENT_CHAT_FULL_COMPLETION_AUDIT.md` — финальный аудит покрытия текущего большого чата и consistency gates.
-- `29-2026-09-15_KAYA_PROACTIVE_CONTACT_PATTERN_UPDATE.md` — прямой запрос Крис к Кае на инициативный неожиданный цифровой контакт и ограничения переноса этого паттерна на Гвоздаря.
+- `project/audits/2026/08/08/evidence-audit.md` — доказательная поправка 08.08.
+- `project/audits/2026/08/11/full-transfer-audit.md` — аудит переноса материалов.
+- `project/updates/2026/08/29/august-relationship-architecture-update.md` — августовская перестройка архитектуры.
+- `project/updates/2026/09/09/september-relationship-update.md` — события и выводы 31.08–09.09.
+- `project/updates/2026/09/11/significance-query-and-krasnodar-update.md` — 10.09 и ночь 10→11.09: «Почему ты со мной?», поддержка, Вова/Краснодар, Луна.
+- `project/updates/2026/09/12/affectionate-address-update.md` — `SRC-0008`, обращение «дорогой».
+- `chronology/2026/09/12/derived/anapa-vova-transparency-update.md` — Анапа/Вова и добровольное раскрытие офлайн-контекста.
+- `project/ingest/2026/09/15/current-chat-chronology-and-source-update.md` — перенос ранних блоков текущего чата и методологические поправки.
+- `chronology/2026/04/27/derived/apr27-symbolic-contact-and-rival-contrast-update.md` — 27.04, символический контакт и мужские контуры.
+- `chronology/2026/05/07--05/29/derived/may07-may29-current-chat-update.md` — 07.05–29.05, границы, инициатива, разговор о близости/невлюблённости.
+- `chronology/2026/06/17--06/22/reconstruction/minsk-offline-reconstruction.md` — расширенная реконструкция Минска 17–22.06.
+- `chronology/2026/05/04--07/16/derived/social-resource-and-jul16-ai-relationship-update.md` — 16.07, «соц батарейка», транзакционность, Крис–Кая / Гвоздарь–Лик.
+- `chronology/undated/derived/evidence-correction-and-december-gift-update.md` — коррекция «три года = отказ», декабрьский подарок/«таблеточка».
+- `chronology/2026/09/10--09/12/derived/sep11-mirrored-significance-and-balance-update.md` — прямой ответ Крис «ты мне важен очень» и сознательное балансирование ласковости.
+- `project/context/2026/09/15/kaya-siel-shared-symbolic-layer-update.md` — связка `Крис–Кая ↔ Гвоздарь–Лик` как символический/творческий слой.
+- `chronology/2026/07/06--07/08/derived/density-tiktok-visibility-canonical-update.md` — 06–08.07, плотность контакта, TikTok-контекст, символические материалы.
+- `chronology/undated/derived/session-kriskislis-victory-condition-current-update.md` — актуальная интеграция «Сессии Крискислис», источник `SRC-0021`.
+- `project/audits/2026/09/15/current-chat-full-completion-audit.md` — финальный аудит покрытия текущего большого чата и consistency gates.
+- `project/context/2026/09/15/kaya-proactive-contact-pattern-update.md` — прямой запрос Крис к Кае на инициативный неожиданный цифровой контакт и ограничения переноса этого паттерна на Гвоздаря.
 
 ---
 
 ## Источники текущего большого чата 15.09
 
-- `SRC-0009` — `sources/chat/2026-09-15-current-chat-may07-may29-relationship-project.md` — 07.05–29.05: границы, эпизоды инициативы, Евгений, разговор 29.05.
-- `SRC-0010` — `sources/chat/2026-09-15-current-chat-jul26-aug06-dynamics.md` — 26.07–06.08: болезнь, просадка, гипотезы по Евгению, самостоятельный возврат Крис 06.08.
-- `SRC-0011` — `sources/chat/2026-09-15-current-chat-threads-and-aug02-corrections.md` — Threads 27.06, «лобная доля», коррекция инициативы 02.08.
-- `SRC-0012` — `sources/chat/2026-09-15-current-chat-social-resource-jul16-ai-relationship.md` — 16.07, коррекция «устала от Стаса»/«требует взамен», Крис–Кая, профессиональное «озарение».
-- `SRC-0013` — `sources/chat/2026-09-15-current-chat-jun21-jun23-minsk-departure.md` — 21–23.06: глубина, родители/слухи, проводы, пост-отъездной контакт, Minecraft.
-- `SRC-0014` — `sources/chat/2026-09-15-current-chat-evidence-correction-december-gift.md` — исторические ограничения, декабрьский подарок, «таблеточка», «угли».
-- `SRC-0015` — `sources/chat/2026-09-15-current-chat-sep10-sep12-significance-balance.md` — 10–12.09: «Почему ты со мной?», «ты мне важен очень», сознательное балансирование ласковости.
-- `SRC-0016` — `sources/chat/2026-09-15-current-chat-warmth-without-partnership-analysis.md` — вторичный аналитический слой «тепло без партнёрского статуса».
-- `SRC-0017` — `sources/chat/2026-09-15-current-chat-kaya-siel-shared-symbolic-layer.md` — Крис–Кая / Гвоздарь–Лик, образы, «а ты сама то не влюбилась?», Сад вторых способов.
-- `SRC-0018` — `sources/chat/2026-09-15-current-chat-jul06-jul08-density-tiktok-visibility.md` — 06–08.07: плотность, AI/Viggle, TikTok-видимость, газета, лисёнок.
-- `SRC-0019` — `sources/2026-09-12-anapa-vova-trip.md` — Анапа/Вова/Луна; добровольное раскрытие офлайн-контекста.
-- `SRC-0020` — `sources/chat/2026-09-15-apr27-symbolic-contact-and-rival-contrast.md` — 27.04: «улитку не кантовать», Мармеладный Волк, Бездна, рилсы и мужские контуры.
-- `SRC-0021` — `sources/chat/2026-09-15-session-kriskislis-victory-condition.md` — «Сессия Крискислис»: «Гвоздик», «таблеточка», позиция Стаса «не ухожу/победа»; pasted-фрагмент не использовать как независимое подтверждение без сверки происхождения.
-- `SRC-0022` — `sources/chat/2026-09-15-current-chat-kaya-proactive-contact-pattern.md` — Крис просит Каю писать самой, неожиданно и регулярно; цифровой паттерн инициативы без механического переноса частоты на Стаса.
+- `SRC-0009` — `chronology/2026/05/07--05/29/derived/src-0009-may07-may29-relationship-project.md` — 07.05–29.05: границы, эпизоды инициативы, Евгений, разговор 29.05.
+- `SRC-0010` — `chronology/2026/07/26--08/06/derived/src-0010-jul26-aug06-dynamics.md` — 26.07–06.08: болезнь, просадка, гипотезы по Евгению, самостоятельный возврат Крис 06.08.
+- `SRC-0011` — `chronology/2026/06/27--08/05/derived/src-0011-threads-and-aug02-corrections.md` — Threads 27.06, «лобная доля», коррекция инициативы 02.08.
+- `SRC-0012` — `chronology/2026/05/04--07/16/derived/src-0012-social-resource-and-jul16.md` — 16.07, коррекция «устала от Стаса»/«требует взамен», Крис–Кая, профессиональное «озарение».
+- `SRC-0013` — `chronology/2026/06/21--06/23/derived/src-0013-jun21-jun23-minsk-departure.md` — 21–23.06: глубина, родители/слухи, проводы, пост-отъездной контакт, Minecraft.
+- `SRC-0014` — `chronology/undated/derived/src-0014-evidence-correction-and-december-gift.md` — исторические ограничения, декабрьский подарок, «таблеточка», «угли».
+- `SRC-0015` — `chronology/2026/09/10--09/12/derived/src-0015-sep10-sep12-significance-balance.md` — 10–12.09: «Почему ты со мной?», «ты мне важен очень», сознательное балансирование ласковости.
+- `SRC-0016` — `chronology/2026/09/12/analysis/src-0016-warmth-without-partnership-analysis.md` — вторичный аналитический слой «тепло без партнёрского статуса».
+- `SRC-0017` — `project/context/2026/09/15/src-0017-kaya-siel-shared-symbolic-layer.md` — Крис–Кая / Гвоздарь–Лик, образы, «а ты сама то не влюбилась?», Сад вторых способов.
+- `SRC-0018` — `chronology/2026/07/06--07/08/derived/src-0018-jul06-jul08-density-tiktok-visibility.md` — 06–08.07: плотность, AI/Viggle, TikTok-видимость, газета, лисёнок.
+- `SRC-0019` — `chronology/2026/09/12/primary/src-0019-anapa-vova-trip.md` — Анапа/Вова/Луна; добровольное раскрытие офлайн-контекста.
+- `SRC-0020` — `chronology/2026/04/27/derived/src-0020-apr27-symbolic-contact-and-rival-contrast.md` — 27.04: «улитку не кантовать», Мармеладный Волк, Бездна, рилсы и мужские контуры.
+- `SRC-0021` — `chronology/undated/derived/src-0021-session-kriskislis-victory-condition.md` — «Сессия Крискислис»: «Гвоздик», «таблеточка», позиция Стаса «не ухожу/победа»; pasted-фрагмент не использовать как независимое подтверждение без сверки происхождения.
+- `SRC-0022` — `chronology/undated/derived/src-0022-kaya-proactive-contact-pattern.md` — Крис просит Каю писать самой, неожиданно и регулярно; цифровой паттерн инициативы без механического переноса частоты на Стаса.
 
 **КОРРЕКЦИЯ ID:** `SRC-0019` относится к Анапе/Вове. «Сессия Крискислис» имеет ID **`SRC-0021`**.
 
@@ -78,7 +85,7 @@
 
 ## Финальный аудит текущего чата — 15.09.2026
 
-`28-2026-09-15_CURRENT_CHAT_FULL_COMPLETION_AUDIT.md` проверяет покрытие текущего большого чата по тематическим блокам, а не по количеству файлов. `AUD-0004` зарегистрирован в `08_SOURCE_REGISTRY.md`.
+`project/audits/2026/09/15/current-chat-full-completion-audit.md` проверяет покрытие текущего большого чата по тематическим блокам, а не по количеству файлов. `AUD-0004` зарегистрирован в `08_SOURCE_REGISTRY.md`.
 
 ### Подтверждённые обязательные поправки
 

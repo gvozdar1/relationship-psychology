@@ -17,29 +17,29 @@
 
 Предыдущая полная версия этого файла сохранена без изменений в:
 
-`archive/2026-09-09-pre-september-update/09_COMBINED_MASTER.md`.
+`archive/snapshots/2026/09/09/pre-september-update/09_COMBINED_MASTER.md`.
 
 Ключевые действующие дополнения:
-- `12-2026-08-08_EVIDENCE_AUDIT.md`;
-- `15-2026-08-29_AUGUST_RELATIONSHIP_ARCHITECTURE_UPDATE.md`;
-- `16-2026-09-09_SEPTEMBER_RELATIONSHIP_UPDATE.md`;
-- `17-2026-09-11_SIGNIFICANCE_QUERY_AND_KRASNODAR_UPDATE.md`;
-- `18-2026-09-12_AFFECTIONATE_ADDRESS_UPDATE.md`;
-- `19-2026-09-15_CURRENT_CHAT_CHRONOLOGY_AND_SOURCE_UPDATE.md`;
-- `20-2026-09-15_APR27_SYMBOLIC_CONTACT_AND_RIVAL_CONTRAST_UPDATE.md`;
-- `21-2026-09-15_MAY07_TO_MAY29_CURRENT_CHAT_UPDATE.md`;
-- `22-2026-09-15_SOCIAL_RESOURCE_AND_JUL16_AI_RELATIONSHIP_UPDATE.md`;
-- `23-2026-09-15_EVIDENCE_CORRECTION_AND_DECEMBER_GIFT_UPDATE.md`;
-- `24-2026-09-15_SEP11_MIRRORED_SIGNIFICANCE_AND_BALANCE_UPDATE.md`;
-- `25-2026-09-15_KAYA_SIEL_SHARED_SYMBOLIC_LAYER_UPDATE.md`;
-- `26-2026-09-15_JUL06_JUL08_DENSITY_TIKTOK_VISIBILITY_UPDATE.md`;
-- `27-2026-09-15_SESSION_KRISKISLIS_VICTORY_CONDITION_UPDATE.md`;
-- `28-2026-09-15_CURRENT_CHAT_FULL_COMPLETION_AUDIT.md`;
-- `sources/2026-09-12-telegram-dear-address.md` (`SRC-0008`);
-- `sources/chat/2026-09-15-current-chat-social-resource-jul16-ai-relationship.md` (`SRC-0012`);
-- `sources/chat/2026-09-15-current-chat-evidence-correction-december-gift.md` (`SRC-0014`);
-- `sources/chat/2026-09-15-current-chat-sep10-sep12-significance-balance.md` (`SRC-0015`);
-- `sources/chat/2026-09-15-current-chat-kaya-siel-shared-symbolic-layer.md` (`SRC-0017`).
+- `project/audits/2026/08/08/evidence-audit.md`;
+- `project/updates/2026/08/29/august-relationship-architecture-update.md`;
+- `project/updates/2026/09/09/september-relationship-update.md`;
+- `project/updates/2026/09/11/significance-query-and-krasnodar-update.md`;
+- `project/updates/2026/09/12/affectionate-address-update.md`;
+- `project/ingest/2026/09/15/current-chat-chronology-and-source-update.md`;
+- `chronology/2026/04/27/derived/apr27-symbolic-contact-and-rival-contrast-update.md`;
+- `chronology/2026/05/07--05/29/derived/may07-may29-current-chat-update.md`;
+- `chronology/2026/05/04--07/16/derived/social-resource-and-jul16-ai-relationship-update.md`;
+- `chronology/undated/derived/evidence-correction-and-december-gift-update.md`;
+- `chronology/2026/09/10--09/12/derived/sep11-mirrored-significance-and-balance-update.md`;
+- `project/context/2026/09/15/kaya-siel-shared-symbolic-layer-update.md`;
+- `chronology/2026/07/06--07/08/derived/density-tiktok-visibility-canonical-update.md`;
+- `chronology/undated/derived/session-kriskislis-victory-condition-current-update.md`;
+- `project/audits/2026/09/15/current-chat-full-completion-audit.md`;
+- `chronology/undated/primary/src-0008-telegram-dear-address.md` (`SRC-0008`);
+- `chronology/2026/05/04--07/16/derived/src-0012-social-resource-and-jul16.md` (`SRC-0012`);
+- `chronology/undated/derived/src-0014-evidence-correction-and-december-gift.md` (`SRC-0014`);
+- `chronology/2026/09/10--09/12/derived/src-0015-sep10-sep12-significance-balance.md` (`SRC-0015`);
+- `project/context/2026/09/15/src-0017-kaya-siel-shared-symbolic-layer.md` (`SRC-0017`).
 
 ---
 
@@ -694,7 +694,7 @@
 
 # 17. Контроль полноты текущего чата
 
-Полный доказательный аудит переноса текущего чата зафиксирован в `28-2026-09-15_CURRENT_CHAT_FULL_COMPLETION_AUDIT.md`.
+Полный доказательный аудит переноса текущего чата зафиксирован в `project/audits/2026/09/15/current-chat-full-completion-audit.md`.
 
 Для текущего канона обязательны четыре поправки, уже отражённые выше:
 1. 16.07 включён как самостоятельный хронологический блок;
