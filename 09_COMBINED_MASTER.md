@@ -2,7 +2,7 @@
 
 ## Статус и приоритет
 
-**Дата актуализации: 15.09.2026.**
+**Дата актуализации: 06.10.2026.**
 
 Этот файл является **главным источником истины** проекта «Психология отношений: Крис».
 
@@ -39,7 +39,9 @@
 - `chronology/2026/05/04--07/16/derived/src-0012-social-resource-and-jul16.md` (`SRC-0012`);
 - `chronology/undated/derived/src-0014-evidence-correction-and-december-gift.md` (`SRC-0014`);
 - `chronology/2026/09/10--09/12/derived/src-0015-sep10-sep12-significance-balance.md` (`SRC-0015`);
-- `project/context/2026/09/15/src-0017-kaya-siel-shared-symbolic-layer.md` (`SRC-0017`).
+- `project/context/2026/09/15/src-0017-kaya-siel-shared-symbolic-layer.md` (`SRC-0017`);
+- `chronology/2026/10/04--10/06/primary/src-0025-oct04-oct06-proactive-contact.md` (`SRC-0025`);
+- `project/updates/2026/10/06/oct04-oct06-proactive-contact-and-strategy-update.md`.
 
 ---
 
