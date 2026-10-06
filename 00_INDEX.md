@@ -1,6 +1,6 @@
 # Проект: Психология отношений с Крис — индекс
 
-## Навигация после хронологической уборки — 15.09.2026
+## Навигация после хронологической уборки — обновлено 06.10.2026
 
 - Канон и методика остаются в корне: `09_COMBINED_MASTER.md`, `00_INDEX.md`, `08_SOURCE_REGISTRY.md`.
 - Событийные материалы находятся в `chronology/YYYY/MM/…/`; входная карта — `chronology/README.md`.
@@ -59,6 +59,7 @@
 - `project/updates/2026/09/15/session-kriskislis-victory-condition-current-update.md` — интеграция «Сессии Крискислис» как аналитического слоя текущей сессии.
 - `project/audits/2026/09/15/current-chat-full-completion-audit.md` — `AUD-0004`, широкий transfer-audit текущего большого чата; для literal line-by-line claims заменён `AUD-0006`.
 - `project/audits/2026/09/15/current-chat-line-by-line-and-archive-audit.md` — `AUD-0006`, действующий посообщенческий аудит текущего чата, коррекции «маргарина», проверка вложений и раздельных архивов.
+- `project/audits/2026/10/06/src-0025-integration-audit.md` — `AUD-0007`, проверка полноты интеграции октябрьского `SRC-0025` и новой коммуникационной стратегии.
 - `project/audits/2026/09/15/repository-date-order-and-duplicate-audit.md` — `AUD-0005`, финальная проверка датировки, дублей, ссылок и остаточного `undated`.
 - `project/context/2026/09/15/kaya-proactive-contact-pattern-update.md` — прямой запрос Крис к Кае на инициативный неожиданный цифровой контакт и ограничения переноса этого паттерна на Гвоздаря.
 - `project/context/2026/09/15/tarot-app-readings-gap-correction-update.md` — коррекция пропуска: расклады приложения Tarot сохраняются как контекстный символический слой, но не как доказательная база отношений.
