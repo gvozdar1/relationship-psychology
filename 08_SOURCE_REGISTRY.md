@@ -25,7 +25,6 @@
 | SRC-0022 | дата скриншотов не установлена; перенесён 15.09.2026 | screenshots + chat-session + AI-generated-text | Крис, Кая | Крис просит Каю писать самой, «внезапно неоткуда пять раз в неделю», определяет доступность через отключение интернета; бытовой обмен про французские розы | `project/context/2026/09/15/src-0022-kaya-proactive-contact-pattern.md` | reviewed; дата карточки известна, дата скриншотов неизвестна; цифровую частоту не переносить механически на Гвоздаря |
 | SRC-0023 | 28.09.2026 | screenshots + video + chat-session + user-report | Крис, Гвоздарь | Примирение после расставания; «Я с тобой и не воюю»; «Богиня», TikTok-идея и «Прелесть»; маникюр/комбинезон; ролик Водолей со словами «спутница/жена» | `chronology/2026/09/28/primary/src-0023-sep28-recontact-goddess-and-pair-language.md`; оригиналы — во вложениях текущего чата | reviewed; точный первичный текст самого расставания не входит в карточку |
 | SRC-0024 | 17–19.09.2026 | recovered-conversation-history + direct-quote reconstruction | Крис, Гвоздарь | 17.09 «пару часов» и отказ от длинной дистанции; ночь 17→18 «Тебя я люблю», страх ухода, «Ты его получил»/«коридор»; 19.09 прямое прекращение прежнего общения и минимальный канал «что с тобой всё хорошо» | `chronology/2026/09/17--09/19/derived/src-0024-sep17-sep19-breakup-and-chance-corridor.md` | reviewed/reconstructed; не полный сырой Telegram-экспорт |
-
 | SRC-0025 | 04–06.10.2026 | screenshots + direct chat images | Крис, Гвоздарь; упоминается Маша | 04.10 самостоятельный бытовой вход Крис с покупкой; 05.10 канал открывает Гвоздарь, Крис активно развивает; 06.10 Крис сама открывает новый день «Утречка» и продолжает контакт | `chronology/2026/10/04--10/06/primary/src-0025-oct04-oct06-proactive-contact.md`; оригиналы — во вложениях текущего чата | verified по видимым скриншотам; содержание кружков не додумывается |
 
 ## Контекстные материалы вне доказательной базы
@@ -44,6 +43,7 @@
 | AUD-0004 | 15.09.2026 | completion-audit | Матрица покрытия текущего большого чата, поиск пропусков и consistency gates | `project/audits/2026/09/15/current-chat-full-completion-audit.md` | active for broad transfer-scope; superseded by AUD-0006 for literal line-by-line claims |
 | AUD-0005 | 15.09.2026 | repository-structure-audit | Финальная сортировка по датам, исправление ссылок, аудит дублей/повторов и проверка остаточного `undated` | `project/audits/2026/09/15/repository-date-order-and-duplicate-audit.md` | active |
 | AUD-0006 | 15.09.2026 | completion-audit | Посообщенческий аудит текущего чата, доказательные коррекции «маргарина», проверка вложений и раздельных архивов | `project/audits/2026/09/15/current-chat-line-by-line-and-archive-audit.md` | active; authoritative for literal line-by-line claims |
+| AUD-0007 | 06.10.2026 | integration-audit | Проверка интеграции `SRC-0025`, октябрьской хронологии, гипотез, master, матриц, протокола и индекса; исправление структурных недочётов | `project/audits/2026/10/06/src-0025-integration-audit.md` | active |
 
 ## SRC-0009: правило использования
 
