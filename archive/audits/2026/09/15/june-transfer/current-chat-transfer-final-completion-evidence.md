@@ -18,11 +18,11 @@
 | Requirement | Evidence | Status |
 |---|---|---|
 | Репозиторий найден | `gvozdar1/relationship-psychology` доступен через GitHub connector | VERIFIED |
-| 21–23.06 перенесён | `sources/chat/2026-09-15-current-chat-jun21-jun23-minsk-departure.md` | VERIFIED |
+| 21–23.06 перенесён | `chronology/2026/06/21--06/23/derived/src-0013-jun21-jun23-minsk-departure.md` | VERIFIED |
 | 21–23.06 зарегистрирован | `08_SOURCE_REGISTRY.md`, строка `SRC-0013` | VERIFIED |
-| 13–20.06 перенесён | `sources/chat/2026-09-15-current-chat-jun13-jun20-minsk-prelude-first-days.md` | VERIFIED |
-| 13–20.06 имеет реестровое дополнение | `sources/registry-addenda/2026-09-15-src-0022-addendum.md` | VERIFIED |
-| Подробная хронология 13–23.06 создана | `timeline/2026-06-13_2026-06-23_minsk-offline-detailed.md` | VERIFIED |
+| 13–20.06 перенесён | `chronology/2026/06/13--06/20/derived/jun13-jun20-minsk-prelude-first-days.md` | VERIFIED |
+| 13–20.06 имеет реестровое дополнение | `project/registry/2026/09/15/src-0028-minsk-addendum.md` | VERIFIED |
+| Подробная хронология 13–23.06 создана | `chronology/2026/06/13--06/23/derived/minsk-offline-detailed.md` | VERIFIED |
 | Разделение уровней утверждений | В источниках и таймлайне есть правила: факт / user-report / гипотеза / вывод / ограничение | VERIFIED |
 | Хронологическая логика сохранена | Покрыты 13, 15, 17, 18, 19, 20, 21, 22, 23 июня | VERIFIED |
 | Нерелевантное не перенесено | В созданных файлах отражены только события проекта Крис | VERIFIED |

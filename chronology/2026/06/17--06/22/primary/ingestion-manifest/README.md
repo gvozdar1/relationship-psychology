@@ -8,7 +8,7 @@
 
 Связанный аналитический файл:
 
-`21-2026-09-15_MINSK_OFFLINE_2026-06-17_22_RECONSTRUCTION.md`
+`chronology/2026/06/17--06/22/reconstruction/minsk-offline-reconstruction.md`
 
 ## Что сделано
 
@@ -38,7 +38,7 @@ SHA256 локального ZIP:
 
 Содержание скриншотов, видимые реплики, реакции, стикеры и пользовательские пояснения уже внесены в хронологический документ:
 
-`21-2026-09-15_MINSK_OFFLINE_2026-06-17_22_RECONSTRUCTION.md`
+`chronology/2026/06/17--06/22/reconstruction/minsk-offline-reconstruction.md`
 
 ## Почему создан этот manifest
 
@@ -48,6 +48,9 @@ SHA256 локального ZIP:
 
 Загрузить файл `minsk_2026-06-17_22_screenshots_raw_archive.zip` в папку:
 
-`sources/2026-06-17_22-minsk-screenshots/`
+`chronology/2026/06/17--06/22/primary/media/`
 
 после появления доступного инструмента загрузки бинарных файлов в GitHub или вручную через GitHub UI.
+
+
+Поправка хранения 24.10.2026: цифры 88 файлов, размер и SHA-256 ZIP выше — историческая запись от 15.09, не повторно проверенные сегодня байты. В дереве GitHub сохранены только этот манифест и INCLUDED_FILES.txt, не ZIP и не 88 изображений.

@@ -29,15 +29,15 @@
 - `chronology/2026/04/27/derived/apr27-symbolic-contact-and-rival-contrast-update.md`;
 - `chronology/2026/05/07--05/29/derived/may07-may29-current-chat-update.md`;
 - `chronology/2026/05/04--07/16/derived/social-resource-and-jul16-ai-relationship-update.md`;
-- `chronology/undated/derived/evidence-correction-and-december-gift-update.md`;
+- `project/updates/2026/09/15/evidence-correction-and-december-gift-update.md`;
 - `chronology/2026/09/10--09/12/derived/sep11-mirrored-significance-and-balance-update.md`;
 - `project/context/2026/09/15/kaya-siel-shared-symbolic-layer-update.md`;
 - `chronology/2026/07/06--07/08/derived/density-tiktok-visibility-canonical-update.md`;
-- `chronology/undated/derived/session-kriskislis-victory-condition-current-update.md`;
+- `project/updates/2026/09/15/session-kriskislis-victory-condition-current-update.md`;
 - `project/audits/2026/09/15/current-chat-full-completion-audit.md`;
-- `chronology/undated/primary/src-0008-telegram-dear-address.md` (`SRC-0008`);
+- `chronology/2026/09/12/primary/src-0008-telegram-dear-address.md` (`SRC-0008`);
 - `chronology/2026/05/04--07/16/derived/src-0012-social-resource-and-jul16.md` (`SRC-0012`);
-- `chronology/undated/derived/src-0014-evidence-correction-and-december-gift.md` (`SRC-0014`);
+- `chronology/2025/12/undated-day/derived/src-0014-evidence-correction-and-december-gift.md` (`SRC-0014`);
 - `chronology/2026/09/10--09/12/derived/src-0015-sep10-sep12-significance-balance.md` (`SRC-0015`);
 - `project/context/2026/09/15/src-0017-kaya-siel-shared-symbolic-layer.md` (`SRC-0017`);
 - `chronology/2026/10/04--10/06/primary/src-0025-oct04-oct06-proactive-contact.md` (`SRC-0025`);
@@ -909,3 +909,12 @@
 Самостоятельная инициатива Крис и ограничение допуска могут существовать одновременно. Поэтому её инициативу нельзя автоматически повышать до признака расширения близости.
 
 **НЕИЗВЕСТНО:** какие конкретно формы входят в «меньше», насколько это временно и одинаково ли относится к переписке, флирту, офлайну и телесности.
+
+
+## Техническая синхронизация — 24.10.2026
+
+Содержание событий не переоценивалось. Июньский пролог зарегистрирован как **SRC-0028** (прежний конфликтующий SRC-0022); SRC-0022 — только Крис–Кая. **AUD-0008** — JSON-аудит, AUD-0006 — построчный. **CTX-0002** включён в основной реестр контекстных материалов, не доказательную базу.
+
+Сводная хронология дополнена 27.04 и 07–29.05 по уже существующим производным источникам; даты планов Вовы синхронизированы как 12–13.09. Реконструкция SRC-0024 убрана из активного корпуса в архив с совместимым указателем. Июньская подробная хронология: `chronology/2026/06/13--06/23/derived/minsk-offline-detailed.md`.
+
+Это не подтверждение полноты первичных носителей: оригиналы части медиа и соседние файлы HTML-экспорта отсутствуют. [Аудит исправлений](project/audits/2026/10/24/repository-repair.md), [статус оригиналов](project/audits/2026/10/24/missing-original-media.md).

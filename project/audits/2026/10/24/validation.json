@@ -1,0 +1,23 @@
+{
+  "base_commit": "0eb9a7a4ddfd8e51d4d91bd7c85a2ffdaf2d8717",
+  "date": "2026-10-24",
+  "total_files": 468,
+  "active_files": 92,
+  "empty_files": [],
+  "exact_duplicate_groups_prepublication": [],
+  "broken_active_markdown_and_explicit_paths": [],
+  "empty_markdown_links": [],
+  "registry_id_collisions": [],
+  "missing_registered_paths": [],
+  "old_out_of_structure_files": [],
+  "all_source_ids_registered": true,
+  "raw_html_preserved": true,
+  "chronology_sep17_before_sep28": true,
+  "html_missing_occurrences": 366,
+  "html_missing_unique_paths": 349,
+  "semantic_review": "source/analysis pairs retained; superseded reconstruction archived with pointer; unique June chronology details retained; duplicate historical completion reports archived",
+  "notes": [
+    "Archive snapshots are historical and excluded from active link rewriting.",
+    "Final exact duplicate check uses Git blob SHAs of the created tree."
+  ]
+}
