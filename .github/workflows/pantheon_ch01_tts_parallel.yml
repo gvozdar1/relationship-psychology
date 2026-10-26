@@ -1,0 +1,126 @@
+name: Pantheon Chapter 01 Parallel Neural TTS
+
+on:
+  push:
+    branches:
+      - tts/pantheon-ch01
+    paths:
+      - ".github/workflows/pantheon_ch01_tts_parallel.yml"
+      - "tools/pantheon_tts/render_shard.py"
+      - "tools/pantheon_tts/merge_shards.py"
+      - "tools/pantheon_tts/generate_ch01.py"
+      - "tools/pantheon_tts/ch01_segments.json"
+      - "tools/pantheon_tts/ch01_pronunciation.json"
+      - "tools/pantheon_tts/apply_pronunciation.py"
+      - "tools/pantheon_tts/refs/**"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/pantheon_ch01_tts_parallel.yml"
+      - "tools/pantheon_tts/render_shard.py"
+      - "tools/pantheon_tts/merge_shards.py"
+      - "tools/pantheon_tts/generate_ch01.py"
+      - "tools/pantheon_tts/ch01_segments.json"
+      - "tools/pantheon_tts/ch01_pronunciation.json"
+      - "tools/pantheon_tts/apply_pronunciation.py"
+      - "tools/pantheon_tts/refs/**"
+  workflow_dispatch:
+
+jobs:
+  render:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install audio tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install neural TTS
+        run: |
+          python -m pip install --upgrade pip
+          pip install --index-url https://download.pytorch.org/whl/cpu torch==2.6.0 torchaudio==2.6.0
+          pip install chatterbox-tts pydub
+
+      - name: Reconstruct voice references
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat tools/pantheon_tts/refs/V01.part* | base64 -d > /tmp/V01.ogg
+          cat tools/pantheon_tts/refs/V02.part* | base64 -d > /tmp/V02.ogg
+          ffmpeg -y -loglevel error -i /tmp/V01.ogg -ac 1 -ar 24000 tools/pantheon_tts/refs/V01.wav
+          ffmpeg -y -loglevel error -i /tmp/V02.ogg -ac 1 -ar 24000 tools/pantheon_tts/refs/V02.wav
+
+      - name: Apply full Russian pronunciation layer
+        run: python tools/pantheon_tts/apply_pronunciation.py
+
+      - name: Render shard
+        env:
+          HF_HUB_DISABLE_TELEMETRY: "1"
+        run: python tools/pantheon_tts/render_shard.py --shard-index ${{ matrix.shard }} --shard-count 4
+
+      - name: Upload shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: pantheon-ch01-shard-${{ matrix.shard }}
+          if-no-files-found: error
+          retention-days: 2
+          path: build/pantheon_ch01/shards/shard_${{ matrix.shard }}/
+
+  merge:
+    needs: render
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install merge tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install pydub
+
+      - name: Download shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: pantheon-ch01-shard-*
+          path: build/pantheon_ch01/downloaded_shards
+          merge-multiple: false
+
+      - name: Merge and master
+        run: python tools/pantheon_tts/merge_shards.py
+
+      - name: Verify corrected audio
+        run: |
+          test -s build/pantheon_ch01/Pantheon_S01_P01_Ch01_FINAL.wav
+          test -s build/pantheon_ch01/Pantheon_S01_P01_Ch01_FINAL.mp3
+          ffprobe -v error -show_entries format=duration,size -of default=nw=1 build/pantheon_ch01/Pantheon_S01_P01_Ch01_FINAL.mp3
+
+      - name: Upload corrected audio
+        uses: actions/upload-artifact@v4
+        with:
+          name: pantheon-ch01-prosody-fixed
+          if-no-files-found: error
+          retention-days: 7
+          path: |
+            build/pantheon_ch01/Pantheon_S01_P01_Ch01_FINAL.wav
+            build/pantheon_ch01/Pantheon_S01_P01_Ch01_FINAL.mp3
+            build/pantheon_ch01/render_manifest.json
