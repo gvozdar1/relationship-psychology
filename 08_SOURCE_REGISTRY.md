@@ -231,3 +231,10 @@
 |---|---|---|---|
 | SRC-0036 | 26.10.2026; 2 JPG со скриншотами Telegram | `chronology/2026/10/26/primary/src-0036-oct26-job-song-sleep-and-rebirth-transcript.md` | verified *text by direct visual viewing in current turn*; JPG bytes local only, sha256 in карточке; [PARTIAL] |
 См. также переходящий фрагмент до разделителя даты, вероятно 25.10. Перекрывающиеся кадры не считать независимыми подтверждениями. В отличие от SRC-0035, новый материал устанавливает **автора фразы «Я родился» 26.10: Крис**.
+
+## Поступление 30.10.2026
+| ID | Период | Тип и статус | Путь |
+|---|---|---|---|
+| SRC-0037 | 27.10.2026 | 2 JPG с перекрытием; [PARTIAL]; текстовая карточка, оригиналы локально | `chronology/2026/10/27/derived/src-0037-oct27-greeting-continuation.md` |
+| SRC-0038 | поздний октябрь, точный день не установлен | 8 JPG; [PARTIAL, DATE UNKNOWN]; прямая речь по скриншотам, без полного экспорта | `chronology/2026/10/undated-day/derived/src-0038-late-oct-work-and-vova.md` |
+Контроль хешей и неперенесённых JPG: `project/ingest/2026/10/30/current-chat-10-screenshots-review.md`. Не считать разные пересекающиеся скриншоты независимыми подтверждениями.
